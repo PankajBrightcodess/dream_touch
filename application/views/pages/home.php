@@ -15,16 +15,39 @@
                       <div class="row">
                       <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);">
+                          <div class="row">
+                            <div class="col-md-5 col-5 ml-3">
                               <div class="inner">
                                 <h3><?php echo $total_members;?></h3>
                                   <p>Total Members</p>
                               </div>
-                              <div class="icon">
+                            </div>
+                            <div class="col-md-5 col-5 ml-3">
+                              <img src="<?php echo base_url('assets/images/direct_team.png')?>" height="95" width="95" class="imge-fliud">
+                                
+                              <!-- <div class="icon">
                                 <i class="ion ion-bag"></i>
-                              </div>
+                              </div> -->
+                           </div>
+                          </div>
                               <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                           </div>
                         </div>
+
+                        <div class="col-lg-3 col-12">
+                                <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
+                                <div class="row">
+                                  <div class="col-md-5 col-5 ml-3">
+                                  <h3><?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo 0.00;}?></h3>   
+                                  <p>E-Wallet</p>
+                                  </div>
+                                  <div class="col-md-6 col-6 text-right">
+                                     <img src="<?php echo base_url('assets/images/wallet123.png')?>" height="95" width="95" class="imge-fliud">
+                                
+                                  </div>
+                                </div>
+                               </div>
+                             </div> 
 
 
                           <div class="col-md-3 col-12">
