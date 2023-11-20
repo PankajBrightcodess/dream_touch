@@ -59,7 +59,7 @@
                                   <p>Total Active Members</p>
                               <!-- </div> -->
                       </div>
-                              <div class="col-md-5 col-5 ml-3">
+                              <div class="col-md-5 col-5 ml-3  text-right">
                                  <img src="<?php echo base_url('assets/images/total_team.png')?>" height="95" width="95" class="imge-fliud">
                                 
                               </div>
