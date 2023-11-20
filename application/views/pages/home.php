@@ -101,7 +101,7 @@
                           </div>
                         </div>
                         <div class="col-lg-3 col-12">
-                            <div class="small-box "  style="background: linear-gradient(302deg,#11272F, #2B5062);">
+                            <div class="small-box "  style="background: linear-gradient(302deg,#11272F, #2B5062);box-shadow:5px 5px 10px black;">
                               <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                 <h3><?php  if(!empty($notification_count)){ echo $notification_count; }else{ echo '0'; };?></h3>   
@@ -115,7 +115,7 @@
                             </div>
                         </div> 
                         <div class="col-md-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#11272F,#B767DE);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#11272F,#B767DE);box-shadow:5px 5px 10px black;">
                           <div class="row">
                             <div class="col-md-5 col-5 ml-3">
                             
