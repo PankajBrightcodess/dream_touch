@@ -102,25 +102,30 @@
                         </div>
                         <div class="col-lg-3 col-12">
                             <div class="small-box "  style="background: linear-gradient(302deg,#11272F, #2B5062);">
-                              <div class="inner">
+                              <div class="row">
+                                  <div class="col-md-5 col-5 ml-3">
                                 <h3><?php  if(!empty($notification_count)){ echo $notification_count; }else{ echo '0'; };?></h3>   
                                 <p>KYC Notification</p>
                               </div>
-                              <div class="icon">
-                                 <i class="ion ion-person-add"></i>
-                              </div>
+                              <div class="col-md-6 col-6 text-right">
+                                     <img src="<?php echo base_url('assets/images/total_income.png')?>" height="95" width="95" class="imge-fliud">
+                                  </div>
+                      </div>
                               <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                             </div>
                         </div> 
                         <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#11272F,#B767DE);">
-                            <div class="inner">
+                          <div class="row">
+                            <div class="col-md-5 col-5 ml-3">
                             
                             <h3><?php  if(!empty($current_closing)){ echo $current_closing; }else{ echo '0'; };?></h3>  
                               <p>Current Closing List</p>
                             </div>
-                            <div class="icon">
-                              <i class="ion ion-stats-bars"></i>
+                            <div class="col-md-6 col-6 text-right">
+                            <img src="<?php echo base_url('assets/images/bbs_super.png')?>" height="95" width="95" class="imge-fliud">
+                              
+                            </div>
                             </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                           </div>
@@ -277,7 +282,7 @@
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>BBC Royalty Bonus</p>
+                                  <p>Working Process</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bbs_royalty.png')?>" height="95" width="95" class="imge-fliud">
@@ -300,7 +305,7 @@
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>BBC Super Bonus</p>
+                                  <p>Working Process</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bbs_super.png')?>" height="95" width="95" class="imge-fliud">
@@ -375,7 +380,7 @@
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3>0/0</h3>      
-                                    <p>Total Weekly Team</p>
+                                    <p>Working Process</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/weekly.png')?>" height="95" width="95" class="imge-fliud">
