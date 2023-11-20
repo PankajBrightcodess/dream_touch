@@ -74,13 +74,13 @@
                         <div class="col-lg-3 col-12">
                             <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E);">
                             <div class="row">
-                            <div class="col-md-6 col-6 text-right">
+                              <div class="col-md-5 col-5 ml-3">
                                 <h3><?php echo $no_of_deactivemembers;?></h3>   
                                 <p>Total Deactive Members</p>
                               </div>
-                              <div class="col-md-6 col-6 text-right">
-                                     <img src="<?php echo base_url('assets/images/weekly.png')?>" height="95" width="95" class="imge-fliud">
-                                  </div>
+                              <div class="col-md-5 col-5 ml-3 text-right">
+                                <img src="<?php echo base_url('assets/images/weekly.png')?>" height="95" width="95" class="imge-fliud">
+                              </div>
                             </div>
                               <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                             </div>
