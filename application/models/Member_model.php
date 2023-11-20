@@ -7,7 +7,7 @@ class Member_model extends CI_Model{
 	// var $downline_order="parent_id, position";
 	// var $downline_parent="parent_id";
 
-	var $user_prefix="BBC";
+	var $user_prefix="DT";
 	var $random_user=false;
 	var $pool_size=3; 
 	var $downline_table="members";
