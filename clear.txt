@@ -1,0 +1,16 @@
+DELETE from tmp_users where id>1;
+
+TRUNCATE `tmp_acc_details`;
+TRUNCATE `tmp_epins`;
+TRUNCATE `tmp_epin_requests`;
+TRUNCATE `tmp_epin_transfer`;
+TRUNCATE `tmp_epin_used`;
+TRUNCATE `tmp_level_members`;
+TRUNCATE `tmp_members`;
+TRUNCATE `tmp_nominee`;
+TRUNCATE `tmp_wallet`;
+TRUNCATE `tmp_wallet_transfers`;
+TRUNCATE `tmp_withdrawals`;
+
+ALTER TABLE `tmp_users` auto_increment = 1;
+ALTER TABLE `tmp_member_tree` auto_increment = 1;

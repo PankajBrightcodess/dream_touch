@@ -1,0 +1,17 @@
+RENAME TABLE tmp_acc_details TO tmp_acc_details;
+RENAME TABLE tmp_banks TO tmp_banks;
+RENAME TABLE tmp_epins TO tmp_epins;
+RENAME TABLE tmp_epin_requests TO tmp_epin_requests;
+RENAME TABLE tmp_epin_transfer TO tmp_epin_transfer;
+RENAME TABLE tmp_epin_used TO tmp_epin_used;
+RENAME TABLE tmp_level_members TO tmp_level_members;
+RENAME TABLE tmp_members TO tmp_members;
+RENAME TABLE tmp_member_tree TO tmp_member_tree;
+RENAME TABLE tmp_nominee TO tmp_nominee;
+RENAME TABLE tmp_packages TO tmp_packages;
+RENAME TABLE tmp_sidebar TO tmp_sidebar;
+RENAME TABLE tmp_users TO tmp_users;
+RENAME TABLE tmp_wallet TO tmp_wallet;
+RENAME TABLE tmp_wallet_transfers TO tmp_wallet_transfers;
+RENAME TABLE tmp_withdrawals TO tmp_withdrawals;
+
