@@ -51,7 +51,7 @@
 
 
                           <div class="col-md-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6);box-shadow:5px 5px 10px black;">
                           <div class="row">
                           <div class="col-md-5 col-5 ml-3">
                               <!-- <div class="inner"> -->
