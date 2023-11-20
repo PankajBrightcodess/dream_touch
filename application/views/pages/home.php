@@ -72,11 +72,11 @@
                         </div>
                        
                         <div class="col-lg-3 col-12">
-                            <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E);">
+                            <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E);box-shadow:5px 5px 10px black;">
                             <div class="row">
                               <div class="col-md-5 col-5 ml-3">
                                 <h3><?php echo $no_of_deactivemembers;?></h3>   
-                                <p>Total Deactive Members</p>
+                                <p>Deactive Members</p>
                               </div>
                               <div class="col-md-5 col-5 ml-3 text-right">
                                 <img src="<?php echo base_url('assets/images/weekly.png')?>" height="95" width="95" class="imge-fliud">
@@ -86,14 +86,17 @@
                             </div>
                         </div> 
                         <div class="col-md-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #F11D5F);">
-                            <div class="inner">
+                          <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #F11D5F);box-shadow:5px 5px 10px black;">
+                          <div class="row">
+                          <div class="col-md-5 col-5 ml-3">
                             <h3><?php  if(!empty($totalturn_over)){ echo $totalturn_over; }else{ echo '0'; };?></h3>
                               <p>Total Turn Over</p>
                             </div>
-                            <div class="icon">
-                              <i class="ion ion-stats-bars"></i>
-                            </div>
+                            <div class="col-md-6 col-6 text-right">
+                                     <img src="<?php echo base_url('assets/images/wallet123.png')?>" height="95" width="95" class="imge-fliud">
+                                
+                                  </div>
+                      </div>
                             <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                           </div>
                         </div>
