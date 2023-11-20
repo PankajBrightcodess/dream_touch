@@ -371,8 +371,9 @@ class Wallet_model extends CI_Model{
 		$checkstatus=$this->checkstatus($regid,$date);
 	
 		if($checkstatus){
-			$members=$this->Member_model->gettodaydirectmembers($regid,$date);
-			
+			$members=$this->Member_model->getdirectmembers($regid,$date);
+			echo PRE;
+			print_r($members);die;
 			$packageamount=array_column($members,'package_amount');
 			$packageamount=array_sum($packageamount);
 			
@@ -409,7 +410,7 @@ class Wallet_model extends CI_Model{
 		if($checkstatus){
 			$record = $this->Member_model->levelwisemembers($regid);
 			// echo PRE;
-			// print_r($record );die;
+			// print_r();die;
 			foreach ($record as $key => $value) {
 				if($value['level']==1){
 					$lavel1[] =  $value['amount'];
@@ -444,41 +445,36 @@ class Wallet_model extends CI_Model{
 				}elseif($value['level']==11){
 					$lavel11[] =  $value['amount'];
 					// $lavel11[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==11){
-					$lavel11[] =  $value['amount'];
-					// $lavel11[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==12){
-					$lavel12[] =  $value['amount'];
-					// $lavel12[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==13){
-					$lavel13[] =  $value['amount'];
-					// $lavel13[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==14){
-					$lavel14[] =  $value['amount'];
-					// $lavel14[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==15){
-					$lavel15[] =  $value['amount'];
-					// $lavel15[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==16){
-					$lavel16[] =  $value['amount'];
-					// $lavel16[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==17){
-					$lavel17[] =  $value['amount'];
-					// $lavel17[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==18){
-					$lavel18[] =  $value['amount'];
-					// $lavel18[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==19){
-					$lavel19[] =  $value['amount'];
-					// $lavel19[] =$this->get_upgradeid_details($value['member_id']);
-				}elseif($value['level']==20){
-					$lavel20[] =  $value['amount'];
-					// $lavel20[] =$this->get_upgradeid_details($value['member_id']);
 				}
 			}
+			$members=$this->Member_model->getdirectativemembers($regid,$date);
+			// echo PRE;
+			// print_r($members);die;
+			//.......................MEMBERS COUNT.....................................
+			$status = array_column($members,'status');
+			$status = array_diff($status, array('0'));
+			$status =array_values($status);
+			// $status = array_sum($status);
+			//.....................ACTIVATION DATE.....................................
+		    $activation_date = array_column($members,'activation_date');
+			$activation_date = array_diff($activation_date, array('0000-00-00'));
+			$activation_date =array_values($activation_date);
+			//.......................PACKAGE AMOUNT....................................
+			$package_id =array_column($members,'package_amount');
+			$package_id =array_filter($package_id);
+			$package_id =array_values($package_id);
+			//.......................MEMBER ID'S....................................
+			$regid =array_column($members,'regid');
+			$regid =array_filter($regid);
+			$regid =array_values($regid);
+			echo PRE;
+			print_r($status);
+			print_r($activation_date);
+			print_r($package_id);
+			print_r($regid);die;
 			
-			
-			if(!empty($lavel1)){
+			if(!empty($lavel1) && $status>=2){
+
 				$lavel1 = array_filter($lavel1);
 				$total = count($lavel1);
 				
@@ -507,6 +503,8 @@ class Wallet_model extends CI_Model{
 						// }
 				}
 			}
+
+			die;
 			if(!empty($lavel2)){
 				$lavel2 = array_filter($lavel2);
 				$total = count($lavel2);
@@ -670,196 +668,6 @@ class Wallet_model extends CI_Model{
 				if($amount>0){
 					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"10th Level","added_on"=>date('Y-m-d H:i:s'));
 					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"10th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel11)){
-				$lavel11 = array_filter($lavel11);
-				$total = count($lavel11);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"11th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"11th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"11th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel12)){
-				$lavel12 = array_filter($lavel12);
-				$total = count($lavel12);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"12th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"12th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"12th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel13)){
-				$lavel13 = array_filter($lavel13);
-				$total = count($lavel13);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"13th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"13th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"13th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel14)){
-				$lavel14 = array_filter($lavel14);
-				$total = count($lavel14);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"14th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"14th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"14th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel15)){
-				$lavel15 = array_filter($lavel15);
-				$total = count($lavel15);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"15th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"15th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"15th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel16)){
-				$lavel16 = array_filter($lavel16);
-				$total = count($lavel16);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"16th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"16th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"16th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel17)){
-				$lavel17 = array_filter($lavel17);
-				$total = count($lavel17);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"17th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"17th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"17th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel18)){
-				$lavel18 = array_filter($lavel18);
-				$total = count($lavel18);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"18th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"18th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"18th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel19)){
-				$lavel19 = array_filter($lavel19);
-				$total = count($lavel19);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"19th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"19th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"19th Level");
-					$check=$this->db->get_where("wallet",$where2)->num_rows();
-					if($check==0){
-						$this->db->insert("wallet",$data);
-					}
-				}
-			}
-
-			if(!empty($lavel20)){
-				$lavel20 = array_filter($lavel20);
-				$total = count($lavel20);
-				$amount =$total*10;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"20th Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount-$save_amount;
-				if($amount>0){
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"20th Level","added_on"=>date('Y-m-d H:i:s'));
-					$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"20th Level");
 					$check=$this->db->get_where("wallet",$where2)->num_rows();
 					if($check==0){
 						$this->db->insert("wallet",$data);

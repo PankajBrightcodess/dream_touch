@@ -110,7 +110,7 @@ if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
 }
 else{
 	defined('DB_HOST')      ? null : define('DB_HOST', 'localhost');
-	defined('DB_USER')      ? null : define('DB_USER', 'brightwm_bright_bharat_care');
-	defined('DB_PASSWORD')  ? null : define('DB_PASSWORD', '0A2pSp4*imi,');
-	defined('DB_NAME')      ? null : define('DB_NAME', 'brightwm_bright_bharat_care');
+	defined('DB_USER')      ? null : define('DB_USER', 'codezcsr_dream_touch');
+	defined('DB_PASSWORD')  ? null : define('DB_PASSWORD', '0U1XbkLHD~O1');
+	defined('DB_NAME')      ? null : define('DB_NAME', 'codezcsr_dream_touch');
 }

@@ -30,7 +30,7 @@ if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
 else{
 	// $config['base_url'] = "https://associates.imarkshoppy.com/";
 	
-	$config['base_url'] = "https://members.brightcodeapp.com/bright_bharat_care";
+	$config['base_url'] = "https://admin.codezealtech.in/dream_touch";
 }
 
 /*

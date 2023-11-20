@@ -94,7 +94,7 @@
                           ?>
                             <div class="row">
                             <div class="col-lg-12 col-12">
-                                <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);">
+                                <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
                                 <div class="row text-center">
                                   <div class="col-md-12">
                                     <h2 class="text-uppercase text-bold"><?php echo $member['name'];?>[<?php echo $member['userid'];?>]</h2>
@@ -120,7 +120,7 @@
 
 
                               <div class="col-lg-3 col-12">
-                                <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);">
+                                <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
                                 <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo 0.00;}?></h3>   
@@ -135,7 +135,7 @@
                              </div> 
 
                           <div class="col-lg-3 col-12">
-                            <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6);">
+                            <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6); box-shadow:5px 5px 10px black;">
                             <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($directbonus['amount'])){ echo $directbonus['amount']; }else{ echo '0.00'; };?></h3>   
@@ -157,7 +157,7 @@
                             </div>
                           </div>
                           <div class="col-lg-3 col-12">
-                            <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E);">
+                            <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E); box-shadow:5px 5px 10px black;">
                             <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($levelincome['amount'])){ echo $levelincome['amount']; }else{ echo '0.00'; };?></h3>   
@@ -191,11 +191,11 @@
                             <!-- </div>
                           </div>  -->
                         <div class="col-lg-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #F11D5F);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #F11D5F); box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>Daily Bonus</p>
+                                  <p>ROI Sponsoring</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bonus.png')?>" height="95" width="105" class="imge-fliud">
@@ -214,11 +214,11 @@
                         </div>
 
                         <div class="col-lg-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#2C5163,#091E25);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#2C5163,#091E25);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>BBC Club Bonus</p>
+                                  <p>Franchise Income</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bbc_club_final.png')?>" height="95" width="95" class="imge-fliud">
@@ -237,7 +237,7 @@
                         </div>
 
                         <div class="col-lg-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #8E63E6);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #8E63E6);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
@@ -260,7 +260,7 @@
                         </div>
 
                         <div class="col-lg-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#B962EA, #F11D5F);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#B962EA, #F11D5F);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
@@ -283,7 +283,7 @@
                         </div>
 
                         <div class="col-lg-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#3262F4, #552AD6);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#3262F4, #552AD6);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?= $directmember['direct_active'];?>/<?= $directmember['direct_total'];?></h3>   
@@ -306,7 +306,7 @@
                         </div>
 
                         <div class="col-lg-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#88C644,#21B38A);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#88C644,#21B38A);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?= $allmembers['allmember_active'];?>/<?= $allmembers['allmember_total'];?></h3>   
@@ -321,7 +321,7 @@
                         </div>
 
                         <div class="col-md-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#D717E4,#241D85);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#D717E4,#241D85);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                     <h3><?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo 0.00;}?></h3>   
@@ -335,7 +335,7 @@
                         </div>
 
                         <div class="col-md-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#17252E,#2B5562);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#17252E,#2B5562);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3>0/0</h3>      
@@ -360,7 +360,7 @@
                             </div>
                         </div> -->
                         <div class="col-lg-3 col-12 zoom pt-1">
-                              <di1v class="small-box"  style="background: linear-gradient(302deg,#11272F,#B767DE);">
+                              <di1v class="small-box"  style="background: linear-gradient(302deg,#11272F,#B767DE);box-shadow:5px 5px 10px black;">
                              
                               <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
@@ -426,17 +426,17 @@
       </div>
   </div>
     <script type="text/javascript">
-        $(document).ready(function(e){
-        debugger;
-        $.ajax({
-            type:"POST",
-            url:"<?php echo base_url("home/verifycommission"); ?>",
-            data:{a:''},
-            success: function(data){
+      //   $(document).ready(function(e){
+      //   debugger;
+      //   $.ajax({
+      //       type:"POST",
+      //       url:"<?php echo base_url("home/verifycommission"); ?>",
+      //       data:{a:''},
+      //       success: function(data){
               
-            }
-          });
-      });
+      //       }
+      //     });
+      // });
      
       function Copy() {
         var Url = document.getElementById("url");

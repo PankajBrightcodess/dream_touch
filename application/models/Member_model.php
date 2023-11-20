@@ -1355,7 +1355,7 @@ class Member_model extends CI_Model{
 	
 	public function getdirectmembers($regid){
 		$columns="t1.id as regid,t1.username,t1.name,t1.vp as password,concat_ws(',',t2.district,t2.state) as location,
-					t3.username as ref,t3.name as refname,t2.date,t2.activation_date,ifnull(t4.package,'--') as package,t2.status,t5.name as distname,t6.name as statename";
+					t3.username as ref,t3.name as refname,t2.date,t2.activation_date,ifnull(t4.package,'--') as package,t4.amount as package_amount,t2.status,t5.name as distname,t6.name as statename";
 		$this->db->select($columns);
 		$this->db->from('users t1');
 		$this->db->join('members t2','t2.regid=t1.id','Left');
@@ -1365,6 +1365,23 @@ class Member_model extends CI_Model{
 		$this->db->join('area t6','t2.state=t6.id','Left');
 		
 		$this->db->where("t2.refid",$regid);
+		$query=$this->db->get();
+		$array=$query->result_array();
+		return $array;
+	}
+
+	public function getdirectativemembers($regid){
+		$columns="t1.id as regid,t1.username,t1.name,t1.vp as password,concat_ws(',',t2.district,t2.state) as location,
+					t3.username as ref,t3.name as refname,t2.date,t2.activation_date,ifnull(t4.package,'--') as package,t4.amount as package_amount,t2.status,t5.name as distname,t6.name as statename";
+		$this->db->select($columns);
+		$this->db->from('users t1');
+		$this->db->join('members t2','t2.regid=t1.id','Left');
+		$this->db->join('users t3','t2.refid=t3.id','Left');
+		$this->db->join('packages t4','t2.package_id=t4.id','Left');
+		$this->db->join('area t5','t2.district=t5.id','Left');
+		$this->db->join('area t6','t2.state=t6.id','Left');
+		
+		$this->db->where(array("t2.refid"=>$regid,"t2.status"=>'1'));
 		$query=$this->db->get();
 		$array=$query->result_array();
 		return $array;
@@ -1616,7 +1633,7 @@ class Member_model extends CI_Model{
 		$this->db->join('members t2','t2.regid=t1.id','Left');
 		$this->db->join('users t3','t2.refid=t3.id','Left');
 		$this->db->join('packages t4','t2.package_id=t4.id','Left');
-		$this->db->where(array("t2.refid"=>$regid,"t2.activation_date"=>$date));
+		$this->db->where(array("t2.refid"=>$regid));
 		$query=$this->db->get();
 		$array=$query->result_array();
 		// $array=$query->num_rows();
