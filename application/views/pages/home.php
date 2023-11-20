@@ -58,12 +58,12 @@
                                 <h3><?php echo $no_of_members;?></h3>
                                   <p>Total Active Members</p>
                               <!-- </div> -->
-                      </div>
+                              </div>
                               <div class="col-md-5 col-5 ml-3  text-right">
                                  <img src="<?php echo base_url('assets/images/total_team.png')?>" height="95" width="95" class="imge-fliud">
                                 
                               </div>
-                      </div>
+                            </div>
                               <!-- <div class="icon">
                                 <i class="ion ion-bag"></i>
                               </div> -->
@@ -73,13 +73,15 @@
                        
                         <div class="col-lg-3 col-12">
                             <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E);">
-                              <div class="inner">
+                            <div class="row">
+                            <div class="col-md-6 col-6 text-right">
                                 <h3><?php echo $no_of_deactivemembers;?></h3>   
                                 <p>Total Deactive Members</p>
                               </div>
-                              <div class="icon">
-                                <i class="fas fa-gift"></i>
-                              </div>
+                              <div class="col-md-6 col-6 text-right">
+                                     <img src="<?php echo base_url('assets/images/weekly.png')?>" height="95" width="95" class="imge-fliud">
+                                  </div>
+                            </div>
                               <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                             </div>
                         </div> 
