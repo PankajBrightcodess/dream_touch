@@ -14,7 +14,7 @@
                       <?php if($this->session->userdata('role')=='admin'){ ?>
                       <div class="row">
                       <div class="col-md-3 col-12">
-                          <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);">
+                          <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
                           <div class="row">
                             <div class="col-md-5 col-5 ml-3">
                               <div class="inner">
@@ -34,7 +34,7 @@
                           </div>
                         </div>
 
-                        <div class="col-lg-3 col-12">
+                        <!-- <div class="col-lg-3 col-12">
                                 <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
                                 <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
@@ -47,18 +47,26 @@
                                   </div>
                                 </div>
                                </div>
-                             </div> 
+                             </div>  -->
 
 
                           <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6);">
-                              <div class="inner">
+                          <div class="row">
+                          <div class="col-md-5 col-5 ml-3">
+                              <!-- <div class="inner"> -->
                                 <h3><?php echo $no_of_members;?></h3>
                                   <p>Total Active Members</p>
+                              <!-- </div> -->
+                      </div>
+                              <div class="col-md-5 col-5 ml-3">
+                                 <img src="<?php echo base_url('assets/images/total_team.png')?>" height="95" width="95" class="imge-fliud">
+                                
                               </div>
-                              <div class="icon">
+                      </div>
+                              <!-- <div class="icon">
                                 <i class="ion ion-bag"></i>
-                              </div>
+                              </div> -->
                               <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                           </div>
                         </div>
