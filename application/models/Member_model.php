@@ -13,6 +13,8 @@ class Member_model extends CI_Model{
 	var $downline_table="members";
 	var $downline_order="refid";
 	var $downline_parent="refid";
+
+	
 	
 	function __construct(){
 		parent::__construct(); 

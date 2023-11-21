@@ -2,12 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Members extends CI_Controller {
+	// var $epin_status=false; //false : No E-pin; 1 : E-pin Required; 2 : E-pin Not Required
+	// var $tree="position"; //false : No Tree; auto : Auto Position; position : Select Position; pool : Auto pool
+	// var $acc_details=false; // Show account details in form
+	// var $reject_kyc=true;
+	// var $transaction_image=true;
+	// var $reject_request=true;
+
 	var $epin_status=false; //false : No E-pin; 1 : E-pin Required; 2 : E-pin Not Required
-	var $tree="position"; //false : No Tree; auto : Auto Position; position : Select Position; pool : Auto pool
+	var $tree=false; //false : No Tree; auto : Auto Position; position : Select Position; pool : Auto pool
 	var $acc_details=false; // Show account details in form
 	var $reject_kyc=true;
-	var $transaction_image=true;
-	var $reject_request=true;
 	
 	function __construct(){
 		parent::__construct();

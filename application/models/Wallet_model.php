@@ -468,41 +468,36 @@ class Wallet_model extends CI_Model{
 				}
 
 
-
-
-
-
-
-
-				$lavel1 = array_filter($lavel1);
-				$total = count($lavel1);
+				// $lavel1 = array_filter($lavel1);
+				// $total = count($lavel1);
 				
-				$amount =$total*35;
-				$where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"1st Level");
-				$save_amount=$this->db->get_where("wallet",$where2)->result_array();
-				$save_amount=array_column($save_amount,'amount');
-			    $save_amount=array_sum($save_amount);
-				$amount = $amount- $save_amount;
-				// && ((date('Y-m-10')==date('Y-m-d',strtotime($date))) || (date('Y-m-20')==date('Y-m-d',strtotime($date)))|| (date('Y-m-30')==date('Y-m-d',strtotime($date))))
-				if($amount>0){
+				// $amount =$total*35;
+				// $where2=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"1st Level");
+				// $save_amount=$this->db->get_where("wallet",$where2)->result_array();
+				// $save_amount=array_column($save_amount,'amount');
+			    // $save_amount=array_sum($save_amount);
+				// $amount = $amount- $save_amount;
+				// // && ((date('Y-m-10')==date('Y-m-d',strtotime($date))) || (date('Y-m-20')==date('Y-m-d',strtotime($date)))|| (date('Y-m-30')==date('Y-m-d',strtotime($date))))
+				// if($amount>0){
 					
-					$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"1st Level","added_on"=>date('Y-m-d H:i:s'));
-						$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"1st Level");
-						// $checkfirst=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"1st Level","MONTH(date)"=>date('m'));
-						$check=$this->db->get_where("wallet",$where2)->num_rows();
-						// echo PRE;
-						// print_r($check);die;
-						// $nocheck=$this->db->get_where("wallet",$checkfirst)->num_rows();
-						// $nocheck<25&&
-						if($check==0){
-							 $this->db->insert("wallet",$data);
-						}
-						// else{
-						// 	 $this->db->update("wallet",$data,$where2);
-						// }
-				}
+				// 	$data=array("date"=>$date,"type"=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"Level Income","rank"=>"1st Level","added_on"=>date('Y-m-d H:i:s'));
+				// 		$where2=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"1st Level");
+				// 		// $checkfirst=array("regid"=>$regid,"remarks"=>"Level Income","rank"=>"1st Level","MONTH(date)"=>date('m'));
+				// 		$check=$this->db->get_where("wallet",$where2)->num_rows();
+				// 		// echo PRE;
+				// 		// print_r($check);die;
+				// 		// $nocheck=$this->db->get_where("wallet",$checkfirst)->num_rows();
+				// 		// $nocheck<25&&
+				// 		if($check==0){
+				// 			 $this->db->insert("wallet",$data);
+				// 		}
+				// 		// else{
+				// 		// 	 $this->db->update("wallet",$data,$where2);
+				// 		// }
+				// }
 			}
-
+			echo PRE;
+			print_r($lavel2);
 			die;
 			if(!empty($lavel2)){
 				$lavel2 = array_filter($lavel2);
