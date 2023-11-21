@@ -415,7 +415,7 @@ class Wallet_model extends CI_Model{
 				if($value['level']==1){
 					$lavel1[] =  $value['amount'];
 				}elseif($value['level']==2){
-					$lavel2[] =  $value['amount'];
+					$lavel2[] =  $value;
 				}elseif($value['level']==3){
 					$lavel3[] =  $value['amount'];
 				}elseif($value['level']==4){
@@ -496,9 +496,9 @@ class Wallet_model extends CI_Model{
 				// 		// }
 				// }
 			}
-			echo PRE;
-			print_r($lavel2);
-			die;
+			// echo PRE;
+			// print_r($lavel2);
+			// die;
 			if(!empty($lavel2)){
 				$lavel2 = array_filter($lavel2);
 				$total = count($lavel2);
