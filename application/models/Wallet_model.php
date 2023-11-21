@@ -414,66 +414,65 @@ class Wallet_model extends CI_Model{
 			foreach ($record as $key => $value) {
 				if($value['level']==1){
 					$lavel1[] =  $value['amount'];
-					// $lavel1[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==2){
 					$lavel2[] =  $value['amount'];
-					// $lavel2[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==3){
 					$lavel3[] =  $value['amount'];
-					// $lavel3[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==4){
 					$lavel4[] =  $value['amount'];
-					// $lavel4[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==5){
 					$lavel5[] =  $value['amount'];
-					// $lavel5[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==6){
 					$lavel6[] =  $value['amount'];
-					// $lavel6[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==7){
 					$lavel7[] =  $value['amount'];
-					// $lavel7[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==8){
 					$lavel8[] =  $value['amount'];
-					// $lavel8[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==9){
 					$lavel9[] =  $value['amount'];
-					// $lavel9[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==10){
 					$lavel10[] =  $value['amount'];
-					// $lavel10[] =$this->get_upgradeid_details($value['member_id']);
 				}elseif($value['level']==11){
 					$lavel11[] =  $value['amount'];
-					// $lavel11[] =$this->get_upgradeid_details($value['member_id']);
 				}
 			}
 			$members=$this->Member_model->getdirectativemembers($regid,$date);
-			// echo PRE;
-			// print_r($members);die;
-			//.......................MEMBERS COUNT.....................................
-			$status = array_column($members,'status');
-			$status = array_diff($status, array('0'));
-			$status =array_values($status);
-			// $status = array_sum($status);
-			//.....................ACTIVATION DATE.....................................
-		    $activation_date = array_column($members,'activation_date');
-			$activation_date = array_diff($activation_date, array('0000-00-00'));
-			$activation_date =array_values($activation_date);
-			//.......................PACKAGE AMOUNT....................................
-			$package_id =array_column($members,'package_amount');
-			$package_id =array_filter($package_id);
-			$package_id =array_values($package_id);
-			//.......................MEMBER ID'S....................................
-			$regid =array_column($members,'regid');
-			$regid =array_filter($regid);
-			$regid =array_values($regid);
-			echo PRE;
-			print_r($status);
-			print_r($activation_date);
-			print_r($package_id);
-			print_r($regid);die;
 			
-			if(!empty($lavel1) && $status>=2){
+			
+			if(!empty($lavel1) && count($members)>=2){
+
+				$date1 = $members[0]['activation_date'];
+				$date2 = $members[1]['activation_date'];
+				$date1 = new DateTime($date1);
+				$date2 = new DateTime($date2);
+			
+				$diff=date_diff($date1,$date2);
+				$diff = $diff->format('%a');
+				foreach ($members as $key => $value) {
+					if($key==0){
+						$days = 300-$diff;
+						$data=array("date"=>$value['activation_date'],"regid"=>$_SESSION['id'],"child_member_id"=>$value['regid'],"total_days"=>$days,"remarks"=>$days,"level"=>"1");
+					}else{
+						$days = 300;
+						$data=array("date"=>$value['activation_date'],"regid"=>$_SESSION['id'],"child_member_id"=>$value['regid'],"total_days"=>$days,"remarks"=>$days,"level"=>"1");
+					}
+					
+					$check['regid']=$_SESSION['id'];
+					$check['child_member_id']=$value['regid'];
+					$res = $this->db->get_where("level_income",$check)->num_rows();
+					
+					if($res==0){
+						$this->db->insert('level_income',$data);
+					}
+					
+				}
+
+
+
+
+
+
+
 
 				$lavel1 = array_filter($lavel1);
 				$total = count($lavel1);

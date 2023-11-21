@@ -1380,6 +1380,7 @@ class Member_model extends CI_Model{
 		$this->db->join('packages t4','t2.package_id=t4.id','Left');
 		$this->db->join('area t5','t2.district=t5.id','Left');
 		$this->db->join('area t6','t2.state=t6.id','Left');
+		$this->db->order_by('t2.activation_date','ASC');	
 		
 		$this->db->where(array("t2.refid"=>$regid,"t2.status"=>'1'));
 		$query=$this->db->get();
