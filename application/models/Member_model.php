@@ -377,17 +377,17 @@ class Member_model extends CI_Model{
 				$array=$this->db->get_where("users",array("role"=>"member"))->unbuffered_row('array');
 				if(!empty($array)){
 					$usrname = array_column($array, 'username');
-					$userid = random_string('numeric',8);
+					$userid = random_string('numeric',5);
 					$name=$this->user_prefix.$userid;
 					if(!in_array($name, $usrname)){
 						$username = $name;
 					}else{
-						$userid = random_string('numeric',8);
+						$userid = random_string('numeric',5);
 					    $username=$this->user_prefix.$userid;
 					}
 				}
 				else{
-					$userid = random_string('numeric',8);
+					$userid = random_string('numeric',5);
 					$username=$this->user_prefix.$userid;
 				}
 				// if(!empty($array)){
