@@ -180,7 +180,7 @@
                             <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($directbonus['amount'])){ echo $directbonus['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>Direct Sponsor Income</p>
+                                  <p>ROI Wallet</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/direct.png')?>" height="95" width="95" class="imge-fliud">

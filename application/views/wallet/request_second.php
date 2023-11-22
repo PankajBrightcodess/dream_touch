@@ -38,8 +38,8 @@
                                     </div>
                                     <div class="form-group">
                                         <?php
-                                            echo create_form_input('number','amount','Withdrawal Amount(1X250 Rs)',true,'',array("id"=>"amount","Placeholder"=>"Withdrawal Amount","min"=>250,"autocomplete"=>"off"));
-                                        ?><p class="text-danger">* 5% TDS and 5% Admin Charge Will be deducted from Withdrawal Amount And Withdraw add with 250 in multiple</p>
+                                            echo create_form_input('number','amount','Withdrawal Amount(1X100 Rs)',true,'',array("id"=>"amount","Placeholder"=>"Withdrawal Amount","min"=>100,"autocomplete"=>"off"));
+                                        ?><p class="text-danger">* 5% TDS and 5% Admin Charge Will be deducted from Withdrawal Amount And Withdraw add with 100 in multiple</p>
                                     </div>
                                     <?php
                                         echo create_form_input("hidden","regid","",false,$user['id']); 

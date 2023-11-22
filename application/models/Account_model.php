@@ -118,6 +118,7 @@ class Account_model extends CI_Model{
         }
         $this->db->order_by('position');
        $query = $this->db->get_where('sidebar',$where);
+	//    echo $this->db->last_query();die;
        if($type == 'all'){
            $return = $query->result_array();
        }else{

@@ -33,7 +33,7 @@ class Members extends CI_Controller {
 		// print_r($date);die;
 		$date=date('Y-m-d');
 		$regid = $this->session->userdata('id');
-		$rec = $this->Wallet_model->level_income($regid,$date);
+		$rec = $this->Wallet_model->directsponsor($regid,$date);
 		echo PRE;
 		print_r($rec);die;
 	}

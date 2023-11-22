@@ -30,12 +30,7 @@
                                             echo create_form_input("text","name","Member Name",false,$user['name'],$attributes); 
                                         ?>
                                     </div>
-                                     <div class="form-group">
-                                        <?php 
-                                            $attributes=array("Placeholder"=>"Transcation Password");
-                                            echo create_form_input("text","trans_password","Transcation Password",true,'',$attributes); 
-                                        ?>
-                                    </div>
+                                     
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">

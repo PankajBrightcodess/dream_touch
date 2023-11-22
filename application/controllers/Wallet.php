@@ -19,6 +19,19 @@ class Wallet extends CI_Controller {
 		$data['datatable']=true;
 		$this->template->load('wallet','wallet',$data);
 	}
+
+	public function second_wallet(){
+		$data['title']="ROI Total Income";
+		$data['breadcrumb']=array("/"=>"Home");
+		$data['user']=$this->Account_model->getuser(array("md5(id)"=>$this->session->userdata('user')));
+		$regid=$data['user']['id'];
+		// $this->Wallet_model->addcommission($regid);
+		$data['wallet']=$this->Wallet_model->getwallet_second($regid);
+		$members=$this->Wallet_model->getmemberrequests_second(array("regid"=>$regid));
+		$data['members']=$members;
+		$data['datatable']=true;
+		$this->template->load('wallet','wallet_second',$data);
+	}
 	
 	
 	public function incomes(){
@@ -438,6 +451,21 @@ class Wallet extends CI_Controller {
 		$data['avl_balance']=$avl_balance;
 		$this->template->load('wallet','request',$data);
 	}
+
+	public function withdrawal_second(){
+		if($this->session->role=='admin'){ redirect('/'); }
+		$data['title']="ROI Witdrawal";
+		$data['breadcrumb']=array("/"=>"Home");
+		$data['user']=$this->Account_model->getuser(array("md5(id)"=>$this->session->userdata('user')));
+		$regid=$data['user']['id'];
+		$acc_details=$this->Member_model->getaccdetails($regid);
+		$data['acc_details']=$acc_details;
+		$wallet=$this->Wallet_model->getwallet_second($regid);
+		$avl_balance=$wallet['actualwallet'];
+		$data['datatable']=true;
+		$data['avl_balance']=$avl_balance;
+		$this->template->load('wallet','request_second',$data);
+	}
 	
 	public function memberrewards(){
 		if($this->session->role!='admin'){ redirect('/'); }
@@ -459,6 +487,19 @@ class Wallet extends CI_Controller {
 		$data['members']=$members;
 		$data['datatable']=true;
 		$this->template->load('wallet','requestlist',$data);
+	}
+
+	public function requestlist_second(){
+		if($this->session->role!='admin'){ redirect('/'); }
+		$data['title']="ROI Withdrawal Requests";
+		$endtime=date('Y-m-d 18:00:00');
+		$today=date('Y-m-d');
+		$where=array("t1.status"=>0);
+		// $where="(t1.status=0 and t1.added_on<'$endtime') or (t1.status=1 and t1.approve_date='$today') ";
+		$members=$this->Wallet_model->getwitdrawalrequest_second($where);
+		$data['members']=$members;
+		$data['datatable']=true;
+		$this->template->load('wallet','requestlist_second',$data);
 	}
 	
 	public function dailypaymentreport(){
@@ -569,6 +610,20 @@ class Wallet extends CI_Controller {
 		}
 		redirect('wallet/requestlist/');
 	}
+
+	public function approvepayout_second(){
+		if($this->input->post('request_id')!==NULL){
+			$request_id=$this->input->post('request_id');
+			$result=$this->Wallet_model->approvepayout_second($request_id);
+			if($result===true){
+				$this->session->set_flashdata("msg","Payout Approved successfully!");
+			}
+			else{
+				$this->session->set_flashdata("err_msg",$result['message']);
+			}
+		}
+		redirect('wallet/requestlist/');
+	}
 	
 	public function approveallpayout(){
 		$endtime=date('Y-m-d 18:00:00');
@@ -580,6 +635,20 @@ class Wallet extends CI_Controller {
 		if($this->input->post('request_id')!==NULL){
 			$request_id=$this->input->post('request_id');
 			$result=$this->Wallet_model->rejectpayout($request_id);
+			if($result===true){
+				$this->session->set_flashdata("msg","Payout Request Rejected!");
+			}
+			else{
+				$this->session->set_flashdata("err_msg",$result['message']);
+			}
+		}
+		redirect('wallet/requestlist/');
+	}
+
+	public function rejectpayout_second(){
+		if($this->input->post('request_id')!==NULL){
+			$request_id=$this->input->post('request_id');
+			$result=$this->Wallet_model->rejectpayout_second($request_id);
 			if($result===true){
 				$this->session->set_flashdata("msg","Payout Request Rejected!");
 			}

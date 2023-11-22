@@ -328,11 +328,7 @@ class Profile extends CI_Controller {
 
 	public function uploaddocs(){
 		if($this->input->post('uploaddocuments')!==NULL){
-			$trans_password = $this->input->post('trans_password');
-			if(!empty($trans_password)){
-				$check = $this->checktrasnpass($trans_password);
-				if($check>0){
-					$where['regid']=$this->input->post('regid');
+			$where['regid']=$this->input->post('regid');
 					$name=$this->input->post('name');
 					$upload_path="./assets/uploads/documents/";
 					$allowed_types="jpg|jpeg|png";
@@ -354,13 +350,6 @@ class Profile extends CI_Controller {
 							$this->session->set_flashdata("err_msg",$result['message']);
 						}
 					}
-
-				}else{
-					$this->session->set_flashdata("err_msg","Your Trasncation Password is not Correct!");
-				}
-				
-
-			}
 			
 		}
 		redirect('profile/kyc/');
