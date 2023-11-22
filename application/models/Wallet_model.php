@@ -36,6 +36,7 @@ class Wallet_model extends CI_Model{
 		// $this->matchingincome($regid,$date);
 		 $this->directsponsor($regid,$date);
 		 $this->level_income($regid,$date);
+		 $this->generate_level_income($regid,$date);
 		// $this->rewardbonus($regid,$date);
 		// $this->repurchaseplan($regid,$date);
 		// $this->check_tour_bonus($regid,$date);
