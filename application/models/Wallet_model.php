@@ -35,6 +35,7 @@ class Wallet_model extends CI_Model{
 		// $this->trip_reward($regid,$date);
 		// $this->matchingincome($regid,$date);
 		 $this->directsponsor($regid,$date);
+		 $this->directsponsor($regid,$date);
 		 $this->level_income($regid,$date);
 		 $this->generate_level_income($regid,$date);
 		// $this->rewardbonus($regid,$date);
@@ -805,6 +806,14 @@ class Wallet_model extends CI_Model{
 		}
 			// ''''''''Working Mood''''''''''
 		}
+		public function getdetailsstate(){
+			$data = $this->db->get_where('area')->result_array();
+			echo PRE;
+			print_r($data);die;
+
+		}
+
+
 		public function packageamount($regid){
 			$this->db->select('t2.amount');
 			$this->db->from('members as t1');

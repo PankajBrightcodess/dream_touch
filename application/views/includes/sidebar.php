@@ -32,13 +32,13 @@
                 </a>
             </li>
             <?php }else{ $not = json_decode($sidebarlist['activate_not'],true);?>
-            <li class="nav-item has-treeview <?php echo activate_dropdown($sidebarlist['activate_menu'],'li',$not); ?>">
+            <li class="nav-item has-treeview   <?php echo activate_dropdown($sidebarlist['activate_menu'],'li',$not); ?>">
                 <a class="nav-link <?php echo activate_dropdown($sidebarlist['activate_menu'],'a',$not); ?>" href="#" data-toggle="treeview">
                     <?php echo $sidebarlist['icon'];?>
                     <p><?php echo $sidebarlist['name'];?> <i class="right fas fa-angle-left"></i></p>
                 </a>
                 <!-- nav nav-treeview -->
-                <ul class="">
+                <ul class="nav nav-treeview">
             <?php foreach($sidebarlist['submenu'] as $submenu){?>    
                 
                     <li class='nav-item'>
