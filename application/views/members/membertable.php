@@ -5,11 +5,11 @@
             <th>Sl No.</th>
             <th>Member ID</th>
             <th>Member Name</th>
-            <th>Sponsor ID</th>
-            <th>Sponsor Name</th>
-            <th>District</th>
+            <!-- <th>Sponsor ID</th>
+            <th>Sponsor Name</th> -->
+            <!-- <th>District</th>
             <th>State</th>
-            <th>Joining Date</th>
+            <th>Joining Date</th> -->
             <th>Activation Date</th>
             <th>Package</th>
             <th class="select-filter">Status</th>
@@ -37,11 +37,11 @@
             <td><?php echo $i; ?></td>
             <td><?php echo $member['username']; ?></td>
             <td><?php echo $member['name']; ?></td>
-            <td><?php echo $member['ref']; ?></td>
+            <!-- <td><?php echo $member['ref']; ?></td>
             <td><?php echo $member['refname']; ?></td>
             <td><?php echo $member['distname']; ?></td>
             <td><?php echo $member['statename']; ?></td>
-            <td><?php echo date('d-m-Y',strtotime($member['date'])); ?></td>
+            <td><?php echo date('d-m-Y',strtotime($member['date'])); ?></td> -->
             <td><?php if($member['activation_date']!='0000-00-00')echo date('d-m-Y',strtotime($member['activation_date'])); ?></td>
             <td><?php echo $member['package']; ?></td>
             <td><?php echo $status; ?></td>
