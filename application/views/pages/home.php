@@ -165,7 +165,7 @@
                                 <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo 0.00;}?></h3>   
-                                  <p>E-Wallet</p>
+                                  <p>Level Wallet Income</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/wallet123.png')?>" height="95" width="95" class="imge-fliud">
@@ -179,8 +179,8 @@
                             <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6); box-shadow:5px 5px 10px black;">
                             <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
-                                  <h3><?php  if(!empty($directbonus['amount'])){ echo $directbonus['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>ROI Wallet</p>
+                                  <h3><?php  if(!empty($total_roi_gen['amount'])){ echo $total_roi_gen['amount']; }else{ echo '0.00'; };?></h3>   
+                                  <p>ROI Wallet Income</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/direct.png')?>" height="95" width="95" class="imge-fliud">

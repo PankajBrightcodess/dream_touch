@@ -34,7 +34,7 @@ class Wallet_model extends CI_Model{
 		// $this->cashbackdategenerate($regid,$date);
 		// $this->trip_reward($regid,$date);
 		// $this->matchingincome($regid,$date);
-		 $this->directsponsor($regid,$date);
+		 $this->roi_income($regid,$date);
 		 $this->directsponsor($regid,$date);
 		 $this->level_income($regid,$date);
 		 $this->generate_level_income($regid,$date);
@@ -1110,6 +1110,37 @@ class Wallet_model extends CI_Model{
 
 					
 						
+					}
+				}
+		}
+
+		public function roi_income($regid,$date=NULL){
+			if($date==NULL){ $date=date('Y-m-d'); }
+				$checkstatus=$this->checkstatus($regid,$date);
+				
+				$result=$commission=array();
+				if($checkstatus){
+					$activation_date = $this->db->get_where('members',array('regid'=>$regid))->row("activation_date");
+					$lastdate = date('Y-m-d',strtotime("$activation_date +300 days"));
+					$current_date = new DateTime($date);
+					$lastdate = new DateTime($lastdate);
+					if($lastdate>$current_date){
+						$amount = $this->packageamount($regid);
+						if($amount==999.00){
+							$amount = 10;
+						}elseif($amount==1999.00){
+							$amount = 20;
+						}elseif($amount==4999.00){
+							$amount = 50;
+						}
+						if($amount>0){
+							$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"ROI Income","added_on"=>date('Y-m-d H:i:s'));
+							$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"ROI Income");
+							$check=$this->db->get_where("wallet_second",$where)->num_rows();
+							if($check == 0){
+								$this->db->insert("wallet_second",$data);
+							}
+						}
 					}
 				}
 		}

@@ -21,6 +21,7 @@ class Home extends CI_Controller {
 		$data['no_of_deactivemembers']=$this->Member_model->no_of_deactivemembers();
 		$data['notification_count']=$this->Member_model->kycnotification();
 		$data['total_encome_gen']=$this->Member_model->memberwalletincome_amount();
+		$data['total_roi_gen']=$this->Member_model->memberroiincome_amount();
 		$data['active_member']=$this->Member_model->active_member_count();
 		$data['cashbackamount']=$this->Member_model->cashbackincome_amount();
 		$data['directbonus']=$this->Member_model->directbonus_amount();

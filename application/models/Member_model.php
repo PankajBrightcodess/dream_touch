@@ -183,6 +183,16 @@ class Member_model extends CI_Model{
 		return $qry->unbuffered_row('array');
 	}
 
+	public function memberroiincome_amount(){
+		$regid = $this->session->userdata('id');
+		$where = array('regid'=>$regid);
+		$this->db->where($where);
+		$this->db->select_sum('amount');
+		$this->db->from('tmp_wallet_second');
+		$qry = $this->db->get();
+		return $qry->unbuffered_row('array');
+	}
+
 	public function left_member_count(){
 		$regid = $this->session->userdata('id');
 		$leftright=$this->Member_model->getleftrightmembers($regid,NULL,"regids");
