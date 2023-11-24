@@ -8,6 +8,13 @@ class Epin_model extends CI_Model{
 	
 	public function generateepin($data){
 		$quantity=$data['quantity'];
+		if($quantity>=25 && $quantity<50){
+			$quantity = $quantity+1;
+		}elseif($quantity>=50 && $quantity<100){
+			$quantity = $quantity+2;
+		}elseif($quantity>=100){
+			$quantity = $quantity+5;
+		}
 		for($i=0;$i<$quantity;$i++){
 			$epindata=array();
 			$epindata['epin']=generateepin();
