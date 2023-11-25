@@ -28,6 +28,8 @@ class Home extends CI_Controller {
 		$data['instantincome']=$this->Member_model->instantincome_amount();
 		$data['tripreward']=$this->Member_model->tripreward_amount();
 		$data['levelincome']=$this->Member_model->level_income_total();
+		$data['package']=$this->Member_model->packageamount_package();
+
 		$regid = $this->session->userdata('id');
 		$direct = $this->Member_model->getdirectmembers($regid);
 		

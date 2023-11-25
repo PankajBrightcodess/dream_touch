@@ -172,6 +172,15 @@ class Member_model extends CI_Model{
 		$qry = $this->db->get();
 		return $qry->unbuffered_row('array');
 	}
+	public function packageamount_package(){
+		$regid = $this->session->userdata('id');
+		$this->db->select('t2.package');
+		$this->db->from('members as t1');
+		$this->db->join('packages as t2','t1.package_id=t2.id','left');
+		$this->db->where(array('t1.regid'=>$regid));
+		return $this->db->get()->row('package');
+
+	}
 
 	public function memberwalletincome_amount(){
 		$regid = $this->session->userdata('id');

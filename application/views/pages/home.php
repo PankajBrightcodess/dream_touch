@@ -141,13 +141,19 @@
                                     <h2 class="text-uppercase text-bold"><?php echo $member['name'];?>[<?php echo $member['userid'];?>]</h2>
                                   </div>
                                   <div class="col-md-12">
-                                    <h5 class=""><span class="text-bold">Package :</span><?php if($member['status']==1){ echo 'Cordinator';}else{ echo 'Panding'; }?> </h5>
+                                    <h5 class=""><span class="text-bold">Package : </span><?php echo $package; ?> </h5>
                                   </div>
                                   <div class="col-md-12">
                                     <h5 class=""><span class="text-bold">Joining Date :</span> <?php echo $member['activation_date'];?><?php echo $member['time'];?></h5>
                                   </div>
                                   <div class="col-md-12">
-                                    <h5 class=""><span class="text-bold">Sponsor Name :</span> <?php echo $member['sponsor_name'];?>[<?php echo $member['sponsor_id'];?>]</h5>
+                                    <h5 class=""><span class="text-bold">Sponsor Name :</span> <?php $total_earn = $total_encome_gen['amount']+$total_roi_gen['amount']; echo $member['sponsor_name'];?>[<?php echo $member['sponsor_id'];?>]</h5>
+                                  </div>
+                                   <div class="col-md-12">
+                                    <h5 class=""><span class="text-bold">Limit :</span> <?php if($package=="P-999"){
+                                       $limit = 3000-$total_earn;
+                                       echo $limit;
+                                    }elseif($package=="P-1999"){ $limit = 6000-$total_earn;  echo $limit; }elseif($package=="P-4999"){ $limit = 15000-$total_earn;  echo $limit; } ?></h5>
                                   </div>
                                  
                                   <div class="col-md-12" >
