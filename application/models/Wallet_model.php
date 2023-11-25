@@ -563,8 +563,8 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['regid'],"total_days"=>$days,"remarks"=>$days,"level"=>"1");
-					$check['regid']=$_SESSION['id'];
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['regid'],"total_days"=>$days,"remarks"=>$days,"level"=>"1");
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['regid'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -591,8 +591,8 @@ class Wallet_model extends CI_Model{
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
 					// $date=date('Y-m-d',strtotime($value['activation_date'], '-1 day'));
 				
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"2");
-					$check['regid']=$_SESSION['id'];
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"2");
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -616,8 +616,8 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"3");
-					$check['regid']=$_SESSION['id'];
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"3");
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -640,9 +640,9 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"4");
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"4");
 					
-					$check['regid']=$_SESSION['id'];
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -665,9 +665,9 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"5");
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"5");
 					
-					$check['regid']=$_SESSION['id'];
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -690,9 +690,9 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"6");
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"6");
 					
-					$check['regid']=$_SESSION['id'];
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -717,9 +717,9 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"7");
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"7");
 					
-					$check['regid']=$_SESSION['id'];
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -742,9 +742,9 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"8");
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"8");
 					
-					$check['regid']=$_SESSION['id'];
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -768,9 +768,9 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"9");
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"9");
 					
-					$check['regid']=$_SESSION['id'];
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){
@@ -794,8 +794,8 @@ class Wallet_model extends CI_Model{
 					}
 					$act_date = $value['activation_date'];
 					$lastdate = date('Y-m-d',strtotime("$act_date +$days days"));
-					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$_SESSION['id'],"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"10");
-					$check['regid']=$_SESSION['id'];
+					$data=array("date"=>$datesave,"activation_date"=>$value['activation_date'],"last_date"=>$lastdate,"regid"=>$regid,"child_member_id"=>$value['member_id'],"total_days"=>$days,"remarks"=>$days,"level"=>"10");
+					$check['regid']=$regid;
 					$check['child_member_id']=$value['member_id'];
 					$res = $this->db->get_where("level_income",$check)->num_rows();
 					if($res==0){

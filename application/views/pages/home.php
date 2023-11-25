@@ -149,11 +149,13 @@
                                   <div class="col-md-12">
                                     <h5 class=""><span class="text-bold">Sponsor Name :</span> <?php echo $member['sponsor_name'];?>[<?php echo $member['sponsor_id'];?>]</h5>
                                   </div>
-                                  <div class="col-md-12">
-                                    <h5 class=""><span class="text-bold">Contact No :</span> <?php echo $member['sponsor_mobile'];?></h5>
-                                  </div>
+                                 
                                   <div class="col-md-12" >
-                                    <h4 class="text-bold" style="background:linear-gradient(202deg,#2C5163,#091E25);">Total Income : <?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo '0.00';}?>/-</h4>
+                                    <h4 class="text-bold" style="background:linear-gradient(202deg,#2C5163,#091E25);">Total Income : <?php if(!empty($total_encome_gen['amount'])){ if(!empty($total_roi_gen['amount'])){
+                                      echo $total_encome_gen['amount']+$total_roi_gen['amount'];
+                                    }else{
+                                      echo $total_encome_gen['amount'];
+                                    }  }elseif(!empty($total_roi_gen['amount'])){ echo $total_roi_gen['amount']; }else{ echo '0.00';}?>/-</h4>
                                   </div>
                                 </div>
                                </div>
@@ -365,7 +367,11 @@
                           <div class="small-box " style="background: linear-gradient(302deg,#D717E4,#241D85);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
-                                    <h3><?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo 0.00;}?></h3>   
+                                    <h3><?php if(!empty($total_encome_gen['amount'])){ if(!empty($total_roi_gen['amount'])){
+                                      echo $total_encome_gen['amount']+$total_roi_gen['amount'];
+                                    }else{
+                                      echo $total_encome_gen['amount'];
+                                    }  }elseif(!empty($total_roi_gen['amount'])){ echo $total_roi_gen['amount']; }else{ echo '0.00';}?></h3>   
                                     <p>Total Income Generate</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
