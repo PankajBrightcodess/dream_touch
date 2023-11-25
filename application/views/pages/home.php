@@ -141,7 +141,7 @@
                                     <h2 class="text-uppercase text-bold"><?php echo $member['name'];?>[<?php echo $member['userid'];?>]</h2>
                                   </div>
                                   <div class="col-md-12">
-                                    <h5 class=""><span class="text-bold">Rank :</span><?php if($member['status']==1){ echo 'Cordinator';}else{ echo 'Panding'; }?> </h5>
+                                    <h5 class=""><span class="text-bold">Package :</span><?php if($member['status']==1){ echo 'Cordinator';}else{ echo 'Panding'; }?> </h5>
                                   </div>
                                   <div class="col-md-12">
                                     <h5 class=""><span class="text-bold">Joining Date :</span> <?php echo $member['activation_date'];?><?php echo $member['time'];?></h5>
