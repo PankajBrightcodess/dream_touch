@@ -80,9 +80,7 @@ class Member_model extends CI_Model{
 				$activatedata['regid']=$regid;
 				$this->activatemember($activatedata);
 			}
-			if($_SESSION['role']=="member"){
-				$this->addlevel($regid);
-			}
+			$this->addlevel($regid);
 			
 		}
 		return $user;
