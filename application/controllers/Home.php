@@ -70,7 +70,7 @@ class Home extends CI_Controller {
 		// $data['user']=$this->Account_model->getuser(array("md5(id)"=>$this->session->userdata('user')));
 		// $regid=$data['user']['id'];
 		// $pin=$this->Epin_model->getepinbystatus('0',$regid);
-		
+		//https://admin.codezealtech.in/dream_touch/pull.php
 		$this->template->load('pages','home',$data);
 	}
 	
