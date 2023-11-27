@@ -333,7 +333,7 @@
 
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#3262F4, #552AD6);box-shadow:5px 5px 10px black;">
-                          <div class="row">
+                          <a href="<?php echo base_url('members/mydirects/');?>"><div class="row">
                                   <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?= $directmember['direct_active'];?>/<?= $directmember['direct_total'];?></h3>   
                                   <p>Direct Team</p>
@@ -342,7 +342,7 @@
                                      <img src="<?php echo base_url('assets/images/direct_team.png')?>" height="95" width="95" class="imge-fliud">
                                 
                                   </div>
-                                </div>
+                                </div></a>
                             <!-- <div class="inner">
                               <h3>0/0</h3>   
                               <p>Direct Team</p>
@@ -356,7 +356,7 @@
 
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#88C644,#21B38A);box-shadow:5px 5px 10px black;">
-                          <div class="row">
+                          <a href="<?php echo base_url('members/downline/');?>" ><div class="row">
                                   <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?= $allmembers['allmember_active'];?>/<?= $allmembers['allmember_total'];?></h3>   
                                   <p>Total Team</p>
@@ -365,7 +365,7 @@
                                      <img src="<?php echo base_url('assets/images/total_team.png')?>" height="95" width="95" class="imge-fliud">
                                 
                                   </div>
-                                </div>
+                                </div></a>
                               </div>
                         </div>
 
