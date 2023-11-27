@@ -259,6 +259,10 @@ class Wallet_model extends CI_Model{
 			return $this->db->error();
 		}
 	}
+
+	public function roi_fund_transfer(){
+		
+	}
 	
 	public function gethistory($regid,$type="register",$wallet="ewallet"){
 		if($type=="register"){

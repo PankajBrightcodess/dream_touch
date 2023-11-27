@@ -17,7 +17,7 @@
                                         <div class="col-md-12">
                                         <div class="form-group">
                                                 <?php
-                                                    $attributes=array("id"=>"ref","Placeholder"=>"Sponsor Id","autocomplete"=>"off");
+                                                    $attributes=array("id"=>"refid","Placeholder"=>"Sponsor Id","autocomplete"=>"off");
                                                     echo create_form_input("text","","Sponsor ID",true,'',$attributes); 
                                                     //echo create_form_input("hidden","refid","",false,$user['id'],array("id"=>"refid")); 
                                                 ?>
@@ -36,7 +36,7 @@
                                         <div class="col-md-12">
                                         <div class="form-group">
                                                 <?php
-                                                    $attributes=array("id"=>"refname","Placeholder"=>"Wallet Amount","autocomplete"=>"off","readonly"=>true);
+                                                    $attributes=array("id"=>"wallet_amount","Placeholder"=>"Wallet Amount","autocomplete"=>"off","readonly"=>true,"value"=>$incomes['amount']);
                                                     echo create_form_input("text","","Wallet Amount",true,'',$attributes); 
                                                 ?>
                                             </div>
@@ -44,7 +44,7 @@
                                          <div class="col-md-12">
                                         <div class="form-group">
                                                 <?php
-                                                    $attributes=array("id"=>"refname","Placeholder"=>"Transfer Amount","autocomplete"=>"off");
+                                                    $attributes=array("id"=>"transfer_amount","Placeholder"=>"Transfer Amount","autocomplete"=>"off");
                                                     echo create_form_input("text","","Transfer Amount",true,'',$attributes); 
                                                 ?>
                                             </div>
