@@ -265,6 +265,16 @@ class Wallet extends CI_Controller {
 		$this->template->load('wallet','levelincome',$data);
 	}
 
+	public function roi_fund_trans(){
+		$data['title']="ROI Fund Transfer";
+		$data['breadcrumb']=array("/"=>"Home");
+		$data['incomes']=$this->Wallet_model->roi_fund_transfer($where);
+		// echo PRE;
+		// print_r($data['incomes']);die;
+		$data['datatable']=true;
+		$this->template->load('wallet','roi_fund_trans',$data);
+	}
+
 	public function roiincome(){
 		$rec = $this->input->get();
 		$where = array();
@@ -299,8 +309,8 @@ class Wallet extends CI_Controller {
 		$data['title']="ROI Incomes";
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Wallet_model->roiin($where);
-		// echo PRE;
-		// print_r($data['incomes']);die;
+		echo PRE;
+		print_r($data['incomes']);die;
 		$data['datatable']=true;
 		$this->template->load('wallet','roiincome',$data);
 
