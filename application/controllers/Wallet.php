@@ -309,8 +309,8 @@ class Wallet extends CI_Controller {
 		$data['title']="ROI Incomes";
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Wallet_model->roiin($where);
-		// echo PRE;
-		// print_r($data['incomes']);die;
+		echo PRE;
+		print_r($data['incomes']);die;
 		$data['datatable']=true;
 		$this->template->load('wallet','roiincome',$data);
 

@@ -217,9 +217,9 @@ class Wallet_model extends CI_Model{
 		//  $array;
 	}
 	public function roiin($where){
-		$this->db->order_by("id");
-		return $this->db->get_where("wallet_second",$where)->result_array();
-		// return $this->db->last_query();
+		$this->db->order_by("id","DESC");
+		 $this->db->get_where("wallet_second",$where)->result_array();
+		return $this->db->last_query();
 		//  $array;
 	}
 	public function carreward_income($where){
