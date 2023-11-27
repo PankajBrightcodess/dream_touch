@@ -84,7 +84,7 @@
                                             <tr>
                                                 <th>Sl No</th>
                                                 <th>Date</th>
-                                                <th>Level</th>
+                                                <!-- <th>Level</th> -->
                                                 <!-- <th>Persent</th> -->
                                                 <th>Income</th>
                                                 <th class="select-filter">Remarks</th>
@@ -100,7 +100,7 @@
                                             <tr>
                                                 <td><?php echo $i; ?></td>
                                                 <td><?php if($income['date']!=''){echo date('d-m-Y',strtotime($income['date']));} ?></td>
-                                                <td><?php echo $income['rank']; ?></td>
+                                                <!-- <td><?php echo $income['rank']; ?></td> -->
                                                 <td><?php echo $this->amount->toDecimal($income['amount']); ?></td>
                                                 <td><?php echo $income['remarks']; ?></td>
                                             </tr>

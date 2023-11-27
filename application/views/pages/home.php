@@ -170,7 +170,7 @@
 
                               <div class="col-lg-3 col-12">
                                 <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
-                                <div class="row">
+                                <a href="<?php echo base_url('wallet/');?>"><div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo 0.00;}?></h3>   
                                   <p>Level Wallet Income</p>
@@ -179,13 +179,13 @@
                                      <img src="<?php echo base_url('assets/images/wallet123.png')?>" height="95" width="95" class="imge-fliud">
                                 
                                   </div>
-                                </div>
+                                </div></a>
                                </div>
                              </div> 
 
                           <div class="col-lg-3 col-12">
                             <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6); box-shadow:5px 5px 10px black;">
-                            <div class="row">
+                            <a href="<?php echo base_url('wallet/second_wallet');?>"><div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($total_roi_gen['amount'])){ echo $total_roi_gen['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>ROI Wallet Income</p>
@@ -194,7 +194,7 @@
                                      <img src="<?php echo base_url('assets/images/direct.png')?>" height="95" width="95" class="imge-fliud">
                                 
                                   </div>
-                                </div>
+                                </div></a>
                               <!-- <div class="inner">
                                 <h3><?php  if(!empty($levelincome['amount'])){ echo $levelincome['amount']; }else{ echo '0.00'; };?></h3>   
                                 <p>Direct Sponsor Income</p>
@@ -207,7 +207,7 @@
                           </div>
                           <div class="col-lg-3 col-12">
                             <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E); box-shadow:5px 5px 10px black;">
-                            <div class="row">
+                            <a href="<?php echo base_url('wallet/level_income');?>"><div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($levelincome['amount'])){ echo $levelincome['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>Level Income</p>
@@ -216,7 +216,7 @@
                                      <img src="<?php echo base_url('assets/images/level.png')?>" height="95" width="95" class="imge-fliud">
                                 
                                   </div>
-                                </div>
+                                </div></a>
                               <!-- <div class="inner">
                                 <h3><?php  if(!empty($instantincome['amount'])){ echo $instantincome['amount']; }else{ echo '0.00'; };?></h3>   
                                 <p>Level Income</p>
@@ -241,16 +241,16 @@
                           </div>  -->
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #F11D5F); box-shadow:5px 5px 10px black;">
-                          <div class="row">
+                          <a href="<?php echo base_url('wallet/roiincome');?>"><div class="row">
                                   <div class="col-md-5 col-5 ml-3">
-                                  <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
+                                  <h3><?php  if(!empty($total_roi_gen['amount'])){ echo $total_roi_gen['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>ROI Sponsoring</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bonus.png')?>" height="95" width="105" class="imge-fliud">
                                 
                                   </div>
-                                </div>
+                                </div></a>
                             <!-- <div class="inner">
                               <h3><?php  if(!empty($workingincomess['amount'])){ echo $workingincomess['amount']; }else{ echo '0.00'; };?></h3>   
                               <p>Daily Bonus</p>
@@ -290,7 +290,7 @@
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>Working Process</p>
+                                  <p>P2P ROI</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bbs_royalty.png')?>" height="95" width="95" class="imge-fliud">
@@ -313,7 +313,7 @@
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>Working Process</p>
+                                  <p>P2P Level</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bbs_super.png')?>" height="95" width="95" class="imge-fliud">

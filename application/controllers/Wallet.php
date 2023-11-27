@@ -259,8 +259,51 @@ class Wallet extends CI_Controller {
 		$data['title']="Level Incomes";
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Wallet_model->levelin($where);
+		// echo PRE;
+		// print_r($data['incomes']);die;
 		$data['datatable']=true;
 		$this->template->load('wallet','levelincome',$data);
+	}
+
+	public function roiincome(){
+		$rec = $this->input->get();
+		$where = array();
+		if(isset($rec['year']) && !empty($rec['year'])){
+			$where['YEAR(date)'] = $rec['year'];
+		}
+		else{
+			$where['YEAR(date)'] = date('Y');
+		}
+		
+		if(isset($rec['month']) && !empty($rec['month'])){
+			$where['MONTH(date)'] = $rec['month'];
+		}else{
+			$where['MONTH(date)'] = date('m');
+		}
+		if(isset($rec['closing']) && !empty($rec['closing'])){
+			if($rec['closing']==1){
+				$where['DAY(date)'] = '10';
+			}elseif($rec['closing']==2){
+				$where['DAY(date)'] = '20';
+			}
+			if($rec['closing']==3){
+				$where['DAY(date)'] = '30';
+			}
+		}
+		
+		$data['user']=$this->Account_model->getuser(array("md5(id)"=>$this->session->userdata('user')));
+		$regid=$data['user']['id'];
+		$where['regid'] = $regid;
+		$where['amount>'] = 0;
+		$where['remarks'] ='ROI Income';
+		$data['title']="ROI Incomes";
+		$data['breadcrumb']=array("/"=>"Home");
+		$data['incomes']=$this->Wallet_model->roiin($where);
+		// echo PRE;
+		// print_r($data['incomes']);die;
+		$data['datatable']=true;
+		$this->template->load('wallet','roiincome',$data);
+
 	}
 
 	public function carreward_offers(){
