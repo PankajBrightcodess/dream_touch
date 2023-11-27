@@ -16,13 +16,13 @@
                       <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                            <div class="col-md-5 col-5 ml-3">
+                            <div class="col-md-5 col-5 ml-3 text-light">
                               <div class="inner">
                                 <h3><?php echo $total_members;?></h3>
                                   <p>Total Members</p>
                               </div>
                             </div>
-                            <div class="col-md-5 col-5 ml-3 text-right">
+                            <div class="col-md-5 col-5 ml-3 text-light text-right">
                               <img src="<?php echo base_url('assets/images/direct_team.png')?>" height="95" width="95" class="imge-fliud">
                                 
                               <!-- <div class="icon">
@@ -37,7 +37,7 @@
                         <!-- <div class="col-lg-3 col-12">
                                 <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
                                 <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo 0.00;}?></h3>   
                                   <p>E-Wallet</p>
                                   </div>
@@ -53,13 +53,13 @@
                           <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                          <div class="col-md-5 col-5 ml-3">
+                          <div class="col-md-5 col-5 ml-3 text-light">
                               <!-- <div class="inner"> -->
                                 <h3><?php echo $no_of_members;?></h3>
                                   <p>Total Active Members</p>
                               <!-- </div> -->
                               </div>
-                              <div class="col-md-5 col-5 ml-3  text-right">
+                              <div class="col-md-5 col-5 ml-3 text-light  text-right">
                                  <img src="<?php echo base_url('assets/images/total_team.png')?>" height="95" width="95" class="imge-fliud">
                                 
                               </div>
@@ -74,11 +74,11 @@
                         <div class="col-lg-3 col-12">
                             <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E);box-shadow:5px 5px 10px black;">
                             <div class="row">
-                              <div class="col-md-5 col-5 ml-3">
+                              <div class="col-md-5 col-5 ml-3 text-light">
                                 <h3><?php echo $no_of_deactivemembers;?></h3>   
                                 <p>Deactive Members</p>
                               </div>
-                              <div class="col-md-5 col-5 ml-3 text-right">
+                              <div class="col-md-5 col-5 ml-3 text-light text-right">
                                 <img src="<?php echo base_url('assets/images/weekly.png')?>" height="95" width="95" class="imge-fliud">
                               </div>
                             </div>
@@ -88,7 +88,7 @@
                         <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #F11D5F);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                          <div class="col-md-5 col-5 ml-3">
+                          <div class="col-md-5 col-5 ml-3 text-light">
                             <h3><?php  if(!empty($totalturn_over)){ echo $totalturn_over; }else{ echo '0'; };?></h3>
                               <p>Total Turn Over</p>
                             </div>
@@ -103,7 +103,7 @@
                         <div class="col-lg-3 col-12">
                             <div class="small-box "  style="background: linear-gradient(302deg,#11272F, #2B5062);box-shadow:5px 5px 10px black;">
                               <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                 <h3><?php  if(!empty($notification_count)){ echo $notification_count; }else{ echo '0'; };?></h3>   
                                 <p>KYC Notification</p>
                               </div>
@@ -117,7 +117,7 @@
                         <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#11272F,#B767DE);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                            <div class="col-md-5 col-5 ml-3">
+                            <div class="col-md-5 col-5 ml-3 text-light">
                             
                             <h3><?php  if(!empty($current_closing)){ echo $current_closing; }else{ echo '0'; };?></h3>  
                               <p>Current Closing List</p>
@@ -171,9 +171,9 @@
                               <div class="col-lg-3 col-12">
                                 <div class="small-box " style="background: linear-gradient(302deg,#18D4DF,#151E83);box-shadow:5px 5px 10px black;">
                                 <a href="<?php echo base_url('wallet/');?>"><div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?php if(!empty($total_encome_gen['amount'])){ echo $total_encome_gen['amount']; }else{ echo 0.00;}?></h3>   
-                                  <p>Level Wallet Income</p>
+                                  <p >Level Wallet Income</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/wallet123.png')?>" height="95" width="95" class="imge-fliud">
@@ -186,7 +186,7 @@
                           <div class="col-lg-3 col-12">
                             <div class="small-box " style="background: linear-gradient(302deg,#3166F4,#5B26D6); box-shadow:5px 5px 10px black;">
                             <a href="<?php echo base_url('wallet/second_wallet');?>"><div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?php  if(!empty($total_roi_gen['amount'])){ echo $total_roi_gen['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>ROI Wallet Income</p>
                                   </div>
@@ -208,7 +208,7 @@
                           <div class="col-lg-3 col-12">
                             <div class="small-box " style="background: linear-gradient(302deg,#84C648,#14B68E); box-shadow:5px 5px 10px black;">
                             <a href="<?php echo base_url('wallet/level_income');?>"><div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?php  if(!empty($levelincome['amount'])){ echo $levelincome['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>Level Income</p>
                                   </div>
@@ -242,7 +242,7 @@
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #F11D5F); box-shadow:5px 5px 10px black;">
                           <a href="<?php echo base_url('wallet/roiincome');?>"><div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?php  if(!empty($total_roi_gen['amount'])){ echo $total_roi_gen['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>ROI Sponsoring</p>
                                   </div>
@@ -265,7 +265,7 @@
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#2C5163,#091E25);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>Franchise Income</p>
                                   </div>
@@ -288,7 +288,7 @@
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #8E63E6);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>P2P ROI</p>
                                   </div>
@@ -311,7 +311,7 @@
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#B962EA, #F11D5F);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
                                   <p>P2P Level</p>
                                   </div>
@@ -334,7 +334,7 @@
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#3262F4, #552AD6);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?= $directmember['direct_active'];?>/<?= $directmember['direct_total'];?></h3>   
                                   <p>Direct Team</p>
                                   </div>
@@ -357,7 +357,7 @@
                         <div class="col-lg-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#88C644,#21B38A);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3><?= $allmembers['allmember_active'];?>/<?= $allmembers['allmember_total'];?></h3>   
                                   <p>Total Team</p>
                                   </div>
@@ -372,7 +372,7 @@
                         <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#D717E4,#241D85);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                     <h3><?php if(!empty($total_encome_gen['amount'])){ if(!empty($total_roi_gen['amount'])){
                                       echo $total_encome_gen['amount']+$total_roi_gen['amount'];
                                     }else{
@@ -390,7 +390,7 @@
                         <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#17252E,#2B5562);box-shadow:5px 5px 10px black;">
                           <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3>0/0</h3>      
                                     <p>Working Process</p>
                                   </div>
@@ -416,7 +416,7 @@
                               <di1v class="small-box"  style="background: linear-gradient(302deg,#11272F,#B767DE);box-shadow:5px 5px 10px black;">
                              
                               <div class="row">
-                                  <div class="col-md-5 col-5 ml-3">
+                                  <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3 class="">Share Link</h3>  
                                    <a href="#" data-toggle="modal" data-target="#exampleModal" class="small-box-footer"  id="share"  > 
                                     <p class="text-light">Click Here</p>

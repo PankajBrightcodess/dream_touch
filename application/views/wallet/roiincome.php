@@ -14,7 +14,7 @@
                         </div><br>
                         <div class="row">
                             <div class="col-md-12">
-                            <form method="get" action="<?= base_url('level-income')?>">
+                            <form method="get" action="<?= base_url('wallet/roiincome')?>">
                                 <div class="row">
                                 <div class="col-md-2 col-12">
                                     <p>Year</p>
@@ -60,7 +60,7 @@
                                     <p>To Date</p>
                                     <input type="date" name="to_date" class="form-control">
                                     </div> -->
-                                    <div class="col-md-2 col-12">
+                                    <!-- <div class="col-md-2 col-12">
                                     <p>Level Wise</p>
                                     <select class="form-control" name="level" id="level">
                                         <option value="">--Level--</option>
@@ -68,7 +68,7 @@
                                         <option value="2">2nd Level</option>
                                         <option value="">All</option>
                                     </select>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-2 col-12 mb-5">
                                          <p></p>
                                     <input type="submit" class="btn btn-sm btn-success mt-4" value="Search">
