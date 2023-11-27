@@ -79,7 +79,7 @@ class Home extends CI_Controller {
 		$this->Wallet_model->addallcommission();
 		$time2 = microtime(true);
 		$time=$time2-$time1;
-	    //mail("pankaj.tiwari@brightcodess.com",PROJECT_NAME." Interval Cron",PROJECT_NAME." Interval Cron Success in $time seconds. Date : ".date('Y-m-d H:i:s'));
+	    mail("pankaj.tiwari@brightcodess.com",PROJECT_NAME." Interval Cron",PROJECT_NAME." Interval Cron Success in $time seconds. Date : ".date('Y-m-d H:i:s'));
 	}
 	
 	public function verifycommission($date=NULL){
