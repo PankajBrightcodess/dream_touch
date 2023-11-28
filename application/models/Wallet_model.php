@@ -482,7 +482,7 @@ class Wallet_model extends CI_Model{
 			$amount = 0;
 			$lastdate = date('Y-m-d',strtotime("$activation_date +10 days"));
 			$countmember = $this->db->get_where('members',array('refid'=>$regid,'activation_date<='=>$lastdate,'status'=>1))->num_rows();
-			$packageamount = packageamount($regid);
+			$packageamount = $this->packageamount($regid);
 			if($countmember>=10 && $countmember<20){
 				
 				if($packageamount==999.00){
