@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <?php echo form_open_multipart('members/addfund', 'id="myform" onsubmit="return validate()"'); ?>
+                                <?php echo form_open_multipart('wallet/addfund', 'id="myform" onsubmit="return validate()"'); ?>
                                     <h3 class="header smaller lighter">ROI Fund Transfer</h3>
                                     <div class="row">
                                        <div class="col-md-6">
@@ -47,6 +47,7 @@
                                                     $attributes=array("id"=>"trans_amount","Placeholder"=>"Transfer Amount","autocomplete"=>"off");
                                                     echo create_form_input("text","transfer_amount","Transfer Amount",true,'',$attributes); 
                                                 ?>
+												<input type="hidden" name="type" value="roi_fund">
                                             </div>
                                         </div>
                                         </div>
@@ -86,6 +87,10 @@
             $('body').on('keyup','#trans_amount',function(){
                 var wallet_amount = $('#wallet_amount').val();
                 var trans_amount = $(this).val();
+			
+				wallet_amount = parseFloat(wallet_amount);
+				trans_amount = parseFloat(trans_amount);
+				// trans_amount = parsefloat(trans_amount);
                 if(wallet_amount<trans_amount){
                     alert("Your Wallet Amount is Too Low");
                     $(this).val("");

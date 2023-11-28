@@ -272,6 +272,16 @@ class Wallet extends CI_Controller {
 		$data['datatable']=true;
 		$this->template->load('wallet','roi_fund_trans',$data);
 	}
+	public function addfund(){
+		$data = $this->input->post();
+		$send['sender_id'] = $data['sponsor_id'];
+		$send['receiver_id'] =  $this->session->userdata('id');
+		$send['amount'] = $data['transfer_amount'];
+		$send['type'] = $data['type'];
+		$send['added_on'] = date('Y-m-d');
+		echo PRE;
+		print_r($send);die;
+	}
 
 	public function roiincome(){
 		$rec = $this->input->get();
