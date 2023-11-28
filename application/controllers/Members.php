@@ -748,6 +748,12 @@ class Members extends CI_Controller {
 		$members=$this->Member_model->getallmembersbytree($regid);
 	 	echo json_encode($members);
 	}
+
+	public function addfund(){
+		$data = $this->input->post();
+		echo PRE;
+		print_r($data);die;
+	}
 	
 	public function kyc(){
 		checklogin();

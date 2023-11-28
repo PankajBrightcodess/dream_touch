@@ -289,8 +289,8 @@
                           <div class="small-box " style="background: linear-gradient(302deg,#FE5C13, #8E63E6);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3 text-light">
-                                  <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>P2P ROI</p>
+                                  <h3><?php  if(!empty($total_business)){ echo $total_business.'/-'; }else{ echo '0.00'; };?></h3>   
+                                  <p>Team Business</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bbs_royalty.png')?>" height="95" width="95" class="imge-fliud">
@@ -312,8 +312,8 @@
                           <div class="small-box " style="background: linear-gradient(302deg,#B962EA, #F11D5F);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3 text-light">
-                                  <h3><?php  if(!empty($cashbackamount['amount'])){ echo $cashbackamount['amount']; }else{ echo '0.00'; };?></h3>   
-                                  <p>P2P Level</p>
+                                  <h3><?php  if(!empty($direct_business)){ echo $direct_business.'/-'; }else{ echo '0.00/-'; };?></h3>   
+                                  <p>Direct Business</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/bbs_super.png')?>" height="95" width="95" class="imge-fliud">
@@ -392,7 +392,7 @@
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3 text-light">
                                   <h3>0/0</h3>      
-                                    <p>Working Process</p>
+                                    <p>P2P Fund Transfer</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
                                      <img src="<?php echo base_url('assets/images/weekly.png')?>" height="95" width="95" class="imge-fliud">

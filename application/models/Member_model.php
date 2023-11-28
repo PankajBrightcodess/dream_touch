@@ -485,6 +485,21 @@ class Member_model extends CI_Model{
 
 
 	}
+	public function direct_business(){
+		$regid = $this->session->userdata('id');
+		$rec = $this->getdirectmembers($regid);
+		$rec = array_column($rec,'package_amount');
+		$rec = array_sum($rec);
+		return $rec;
+	}
+
+	public function total_business(){
+		$regid = $this->session->userdata('id');
+		$rec = $this->getallmembers($regid);
+		$rec = array_column($rec,'package_amount');
+		$rec = array_sum($rec);
+		return $rec;
+	}
 
 	public function  both_bv($date=NULL){
 		$regid = $this->session->userdata('id');
@@ -1085,7 +1100,7 @@ class Member_model extends CI_Model{
 			
 		$exe=$this->db->query($sql);
 		$regids=$exe->row()->regids;
-		$list_id = $this->db->get_Where('level_members',array('regid'=>$regid,'level_id<'=>3))->result_array();
+		$list_id = $this->db->get_Where('level_members',array('regid'=>$regid,'level_id<'=>20))->result_array();
 		$list_id = array_column($list_id,'member_id');
 		// echo PRE;
 		// print_r($regid);die;
@@ -1094,7 +1109,7 @@ class Member_model extends CI_Model{
 		if($regids!==NULL){
 			if($type=="all" || $type=="active"){
 				$columns="t1.id as regid,t1.username,t1.name,t1.vp as password,concat_ws(',',t2.district,t2.state) as location,
-							t3.username as ref,t3.name as refname,t2.date,t2.activation_date,t2.time,ifnull(t4.package,'--') as package,t2.status,t5.name as distname,t6.name as statename";
+							t3.username as ref,t3.name as refname,t2.date,t2.activation_date,t2.time,ifnull(t4.package,'--') as package,t4.amount as package_amount,t2.status,t5.name as distname,t6.name as statename";
 				
 				$this->db->group_start();
 				$regid_chunks = array_chunk($regids,25);
@@ -1166,7 +1181,7 @@ class Member_model extends CI_Model{
 			$regids=explode(',',$regids);
 			if($type=="all" || $type=="active"){
 				$columns="t1.id as regid,t1.username,t1.name,t1.vp as password,concat_ws(',',t2.district,t2.state) as location,
-							t3.username as ref,t3.name as refname,t2.date,t2.activation_date,ifnull(t4.package,'--') as package,t2.status, t5.name as distname,t6.name as statename";
+							t3.username as ref,t3.name as refname,t2.date,t2.activation_date,ifnull(t4.package,'--') as package,t4.amount as package_amount,t2.status, t5.name as distname,t6.name as statename";
 				
 				$this->db->group_start();
 				$regid_chunks = array_chunk($regids,25);
@@ -1378,6 +1393,8 @@ class Member_model extends CI_Model{
 		}
 		return $result;
 	}
+
+	
 	
 	public function getdirectmembers($regid){
 		$columns="t1.id as regid,t1.username,t1.name,t1.vp as password,concat_ws(',',t2.district,t2.state) as location,

@@ -482,16 +482,37 @@ class Wallet_model extends CI_Model{
 			$amount = 0;
 			$lastdate = date('Y-m-d',strtotime("$activation_date +10 days"));
 			$countmember = $this->db->get_where('members',array('refid'=>$regid,'activation_date<='=>$lastdate,'status'=>1))->num_rows();
+			$packageamount = packageamount($regid);
 			if($countmember>=10 && $countmember<20){
-				$amount = $countmember*20; 
+				
+				if($packageamount==999.00){
+					$amount = 10; 
+				}elseif($packageamount==1999.00){
+					$amount = 20; 
+				}elseif($packageamount==4999.00){
+					$amount = 25;
+				}
+				
 			}elseif($countmember>=20 && $countmember<30){
-				$amount = $countmember*40; 
+				if($packageamount==999.00){
+					$amount = 20; 
+				}elseif($packageamount==1999.00){
+					$amount = 40; 
+				}elseif($packageamount==4999.00){
+					$amount = 50;
+				}
 			}
 
 			$lastdate = date('Y-m-d',strtotime("$activation_date +30 days"));
 			$countmember = $this->db->get_where('members',array('refid'=>$regid,'activation_date<='=>$lastdate,'status'=>1))->num_rows();
 			if($countmember>=25){
-				$amount = $countmember*50; 
+				if($packageamount==999.00){
+					$amount = 50; 
+				}elseif($packageamount==1999.00){
+					$amount = 70; 
+				}elseif($packageamount==4999.00){
+					$amount = 80;
+				} 
 			}
 			$where=array("regid"=>$regid,"remarks"=>"ROI Sponsoring Bonanza");
 				$saveamount=$this->db->get_where("tmp_wallet_second",$where)->result_array();

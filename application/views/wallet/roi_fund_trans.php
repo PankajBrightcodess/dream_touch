@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <?php echo form_open_multipart('members/addmember', 'id="myform" onsubmit="return validate()"'); ?>
+                                <?php echo form_open_multipart('members/addfund', 'id="myform" onsubmit="return validate()"'); ?>
                                     <h3 class="header smaller lighter">ROI Fund Transfer</h3>
                                     <div class="row">
                                        <div class="col-md-6">
@@ -17,8 +17,8 @@
                                         <div class="col-md-12">
                                         <div class="form-group">
                                                 <?php
-                                                    $attributes=array("id"=>"refid","Placeholder"=>"Sponsor Id","autocomplete"=>"off");
-                                                    echo create_form_input("text","","Sponsor ID",true,'',$attributes); 
+                                                    $attributes=array("id"=>"ref","Placeholder"=>"Sponsor Id","autocomplete"=>"off");
+                                                    echo create_form_input("text","sponsor_id","Sponsor ID",true,'',$attributes); 
                                                     //echo create_form_input("hidden","refid","",false,$user['id'],array("id"=>"refid")); 
                                                 ?>
                                                 <div style="padding:0 10px; font-size:16px; font-weight:600" id="refdiv"></div>
@@ -29,7 +29,7 @@
                                         <div class="form-group">
                                                 <?php
                                                     $attributes=array("id"=>"refname","Placeholder"=>"Sponsor Name","autocomplete"=>"off","readonly"=>true);
-                                                    echo create_form_input("text","","Sponsor Name",true,'',$attributes); 
+                                                    echo create_form_input("text","sponsor_name","Sponsor Name",true,'',$attributes); 
                                                 ?>
                                             </div>
                                         </div>
@@ -37,15 +37,15 @@
                                         <div class="form-group">
                                                 <?php
                                                     $attributes=array("id"=>"wallet_amount","Placeholder"=>"Wallet Amount","autocomplete"=>"off","readonly"=>true,"value"=>$incomes['amount']);
-                                                    echo create_form_input("text","","Wallet Amount",true,'',$attributes); 
+                                                    echo create_form_input("text","wallet_amount","Wallet Amount",true,'',$attributes); 
                                                 ?>
                                             </div>
                                         </div>
                                          <div class="col-md-12">
                                         <div class="form-group">
                                                 <?php
-                                                    $attributes=array("id"=>"transfer_amount","Placeholder"=>"Transfer Amount","autocomplete"=>"off");
-                                                    echo create_form_input("text","","Transfer Amount",true,'',$attributes); 
+                                                    $attributes=array("id"=>"trans_amount","Placeholder"=>"Transfer Amount","autocomplete"=>"off");
+                                                    echo create_form_input("text","transfer_amount","Transfer Amount",true,'',$attributes); 
                                                 ?>
                                             </div>
                                         </div>
@@ -83,16 +83,13 @@
 			$('#ref').blur(function(){
 				getrefid();
 			});
-            $('body').on('change','#state',function(){
-               var state_id = $(this).val();
-               $.ajax({
-					type:"POST",
-					url:"<?php echo base_url("members/dist_list"); ?>",
-					data:{state_id:state_id},
-					success: function(data){
-                       $('#district').html(data);
-					}
-				});
+            $('body').on('keyup','#trans_amount',function(){
+                var wallet_amount = $('#wallet_amount').val();
+                var trans_amount = $(this).val();
+                if(wallet_amount<trans_amount){
+                    alert("Your Wallet Amount is Too Low");
+                    $(this).val("");
+                }
             });
 			$('#parent').keyup(function(){
 				var username=$(this).val();
