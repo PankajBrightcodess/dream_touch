@@ -269,18 +269,25 @@ class Wallet extends CI_Controller {
 		$data['title']="ROI Fund Transfer";
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Member_model->memberroiincome_amount();
+		$data['fundtranslist'] = $this->Member_model->getfundtransgferlist();
 		$data['datatable']=true;
 		$this->template->load('wallet','roi_fund_trans',$data);
 	}
 	public function addfund(){
 		$data = $this->input->post();
-		$send['sender_id'] = $data['sponsor_id'];
-		$send['receiver_id'] =  $this->session->userdata('id');
+		$send['sender_id'] = $this->session->userdata('id');
+		$send['receiver_id'] =  $data['sponsor_id'];
 		$send['amount'] = $data['transfer_amount'];
 		$send['type'] = $data['type'];
 		$send['added_on'] = date('Y-m-d');
-		echo PRE;
-		print_r($send);die;
+		$result=$this->Wallet_model->addfund($send);
+			if($result===true){
+				$this->session->set_flashdata("msg","Amount Transferred successfully!");
+			}
+			else{
+				$this->session->set_flashdata("err_msg",$result['message']);
+			}
+			redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function roiincome(){

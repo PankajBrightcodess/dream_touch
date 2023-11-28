@@ -52,7 +52,36 @@
                                         </div>
                                         </div>
                                        </div>
-                                       <div class="col-md-6"></div>
+                                       <div class="col-md-6">
+									   <div class="table-responsive" id="result">
+                                    <table class="table table-striped data-table" id="bootstrap-data-table-export">
+                                        <thead>
+                                            <tr>
+                                                <th>SL NO.</th>
+                                                <th>MEMBER ID</th>
+                                                <!-- <th>NO OF MEMBERS</th> -->
+                                                <th>TRANSFER AMOUNT</th>
+                                                <th class="select-filter">DATE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											<?php
+												if(!empty($fundtranslist)){ $i=0;
+													foreach ($fundtranslist as $key => $value) { $i++;
+														?>
+														<tr>
+															<td><?php echo $i;?></td>
+															<td><?php echo $value['receiver_id'];?></td>
+															<td><?php echo $value['amount'];?></td>
+															<td><?php echo date('d-m-Y',strtotime($value['added_on']));?></td>
+														</tr>
+														<?php
+													}
+												}
+											?>
+										</tbody>
+                                    </table>
+									   </div>
                                   
                                         
                                     </div>

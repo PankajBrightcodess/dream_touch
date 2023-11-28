@@ -197,6 +197,12 @@ class Member_model extends CI_Model{
 		return $qry->unbuffered_row('array');
 	}
 
+	public function getfundtransgferlist(){
+		$regid = $this->session->userdata('id');
+		$where = array('sender_id'=>$regid,'type'=>'roi_fund');
+		return $this->db->get_where('tmp_fund_transfer',$where)->result_array();
+	}
+
 	public function memberroiincome_amount(){
 		$regid = $this->session->userdata('id');
 		$where = array('regid'=>$regid);
@@ -204,7 +210,20 @@ class Member_model extends CI_Model{
 		$this->db->select_sum('amount');
 		$this->db->from('tmp_wallet_second');
 		$qry = $this->db->get();
-		return $qry->unbuffered_row('array');
+		$amount =  $qry->unbuffered_row('array');
+		$transamount = 0;
+		if($amount>0){
+			$this->db->where(array('sender_id'=>$regid));
+			$this->db->select_sum('amount');
+			$this->db->from('tmp_fund_transfer');
+			$qrya = $this->db->get();
+			$transamount =  $qrya->unbuffered_row('array');
+
+		}
+	
+		$amount['amount'] = $amount['amount']-$transamount['amount'];
+		return $amount;
+
 	}
 
 	public function left_member_count(){
