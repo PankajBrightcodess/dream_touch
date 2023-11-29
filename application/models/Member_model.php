@@ -203,6 +203,12 @@ class Member_model extends CI_Model{
 		return $this->db->get_where('tmp_fund_transfer',$where)->result_array();
 	}
 
+	public function getfundtransgferlistforlevel(){
+		$regid = $this->session->userdata('id');
+		$where = array('sender_id'=>$regid,'type'=>'level_fund');
+		return $this->db->get_where('tmp_fund_transfer',$where)->result_array();
+	}
+
 	public function memberroiincome_amount(){
 		$regid = $this->session->userdata('id');
 		$where = array('regid'=>$regid);
@@ -213,17 +219,50 @@ class Member_model extends CI_Model{
 		$amount =  $qry->unbuffered_row('array');
 		$transamount = 0;
 		if($amount>0){
-			$this->db->where(array('sender_id'=>$regid));
+			$this->db->where(array('sender_id'=>$regid,'type'=>'roi_fund'));
 			$this->db->select_sum('amount');
 			$this->db->from('tmp_fund_transfer');
 			$qrya = $this->db->get();
 			$transamount =  $qrya->unbuffered_row('array');
-
 		}
-	
-		$amount['amount'] = $amount['amount']-$transamount['amount'];
-		return $amount;
 
+		$memberid = $this->db->get_where('users',array('id'=>$regid))->row('username');
+		$where7=array("receiver_id"=>$memberid,"type"=>"roi_fund");
+		$this->db->select_sum('amount');
+		$query6=$this->db->get_where("tmp_fund_transfer",$where7);
+		$getamount=$query6->row()->amount;
+		if($getamount==NULL){ $getamount=0; }
+
+
+
+		$amount['amount'] = $amount['amount']-$transamount['amount']+$getamount;
+		return $amount;
+	}
+
+	public function memberlevelincome_amount(){
+		$regid = $this->session->userdata('id');
+		$where = array('regid'=>$regid);
+		$this->db->where($where);
+		$this->db->select_sum('amount');
+		$this->db->from('tmp_wallet');
+		$qry = $this->db->get();
+		$amount =  $qry->unbuffered_row('array');
+		$transamount = 0;
+		if($amount>0){
+			$this->db->where(array('sender_id'=>$regid,'type'=>'level_fund'));
+			$this->db->select_sum('amount');
+			$this->db->from('tmp_fund_transfer');
+			$qrya = $this->db->get();
+			$transamount =  $qrya->unbuffered_row('array');
+		}
+		$memberid = $this->db->get_where('users',array('id'=>$regid))->row('username');
+		$where7=array("receiver_id"=>$memberid,"type"=>"roi_fund");
+		$this->db->select_sum('amount');
+		$query6=$this->db->get_where("tmp_fund_transfer",$where7);
+		$getamount=$query6->row()->amount;
+		if($getamount==NULL){ $getamount=0; }
+		$amount['amount'] = $amount['amount']-$transamount['amount']+$getamount ;
+		return $amount;
 	}
 
 	public function left_member_count(){

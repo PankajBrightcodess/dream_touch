@@ -126,6 +126,7 @@ $route['direct-sponsor-report'] = 'wallet/direct_sponsor_report';
 $route['car-reward-reports'] = 'wallet/car_reward_reports';
 $route['tripreward'] = 'members/tripreward';
 $route['payout-list'] = 'members/payout_list';
+$route['fund_receive'] = 'wallet/fund_receive';
 $route['payout-list-details'] = 'members/payout_list_details';
 $route['payout-list-details-all'] = 'members/payout_list_details_all';
 $route['change_trans_pass'] = 'profile/change_trans_pass';

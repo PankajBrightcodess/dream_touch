@@ -273,6 +273,23 @@ class Wallet extends CI_Controller {
 		$data['datatable']=true;
 		$this->template->load('wallet','roi_fund_trans',$data);
 	}
+
+	public function fund_receive(){
+		$data['title']="ROI Fund Transfer";
+		$data['breadcrumb']=array("/"=>"Home");
+		$data['incomes']=$this->Member_model->memberroiincome_amount();
+		$data['fundtranslist'] = $this->Member_model->getfundtransgferlist();
+		$data['datatable']=true;
+		$this->template->load('wallet','fund_receive',$data);
+	}
+	public function level_fund_trans(){
+		$data['title']="Level Fund Transfer";
+		$data['breadcrumb']=array("/"=>"Home");
+		$data['incomes']=$this->Member_model->memberlevelincome_amount();
+		$data['fundtranslist'] = $this->Member_model->getfundtransgferlistforlevel();
+		$data['datatable']=true;
+		$this->template->load('wallet','level_fund_trans',$data);
+	}
 	public function addfund(){
 		$data = $this->input->post();
 		$send['sender_id'] = $this->session->userdata('id');
