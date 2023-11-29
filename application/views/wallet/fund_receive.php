@@ -10,17 +10,18 @@
                         <div class="row">
                             <div class="col-12">
                                 <?php echo form_open_multipart('wallet/addfund', 'id="myform" onsubmit="return validate()"'); ?>
-                                    <h3 class="header smaller lighter">Level Fund Transfer</h3>
+                                    <h3 class="header smaller lighter">FUND RECEIVE</h3>
                                     <div class="row">
                                        
                                        <div class="col-md-12">
 									   <div class="table-responsive" id="result">
                                     <table class="table table-striped data-table" id="bootstrap-data-table-export">
-                                        <div class="Got it, that's why you seem all physically and mentally on point."
+                                       
                                         <thead>
                                             <tr>
                                                 <th>SL NO.</th>
-                                                <th>MEMBER ID</th>
+                                                <th>SENDER ID</th>
+                                                <th>SENDER NAME</th>
                                                 <!-- <th>NO OF MEMBERS</th> -->
                                                 <th>TRANSFER AMOUNT</th>
                                                 <th class="select-filter">DATE</th>
@@ -33,7 +34,8 @@
 														?>
 														<tr>
 															<td><?php echo $i;?></td>
-															<td><?php echo $value['receiver_id'];?></td>
+															<td><?php echo $value['username'];?></td>
+															<td><?php echo $value['name'];?></td>
 															<td><?php echo $value['amount'];?></td>
 															<td><?php echo date('d-m-Y',strtotime($value['added_on']));?></td>
 														</tr>
@@ -52,11 +54,7 @@
                                   
                                    
                                   
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-sm btn-success" id="savebtn" name="addmember" disabled>Submit</button>
-                                        </div>
-                                    </div>
+                                   
                                 <?php echo form_close(); ?>
                             </div>
                         </div>	

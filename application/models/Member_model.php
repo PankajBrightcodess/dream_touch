@@ -291,6 +291,19 @@ class Member_model extends CI_Model{
 			}
 	}
 
+	public function getfundreceivelist(){
+		$regid = $this->session->userdata('id');
+		$memberid = $this->db->get_where('users',array('id'=>$regid))->row('username');
+			$where7=array("t1.receiver_id"=>$memberid);
+			$this->db->select('t1.*,t2.username,t2.name');
+			$this->db->from('tmp_fund_transfer as t1');
+			$this->db->join('users as t2','t1.sender_id=t2.id','left');
+			return $this->db->get()->result_array();
+
+
+			return $this->db->get_where("tmp_fund_transfer",$where7)->result_array();
+	}
+
 	public function leadership_bonus(){
 		$regid = $this->session->userdata('id');
 		$where = array('regid'=>$regid,'remarks'=>'Leadership Bonus');
