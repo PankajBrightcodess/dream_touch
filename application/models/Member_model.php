@@ -1171,16 +1171,14 @@ class Member_model extends CI_Model{
 			
 		$exe=$this->db->query($sql);
 		$regids=$exe->row()->regids;
-		$list_id = $this->db->get_Where('level_members',array('regid'=>$regid,'level_id<'=>20))->result_array();
+		$list_id = $this->db->get_Where('level_members',array('regid'=>$regid,'level_id<'=>4))->result_array();
 		$list_id = array_column($list_id,'member_id');
-		// echo PRE;
-		// print_r($regid);die;
 		$regids=explode(',',$regids);
 		$regids = array_intersect($regids, $list_id);
 		if($regids!==NULL){
 			if($type=="all" || $type=="active"){
 				$columns="t1.id as regid,t1.username,t1.name,t1.vp as password,concat_ws(',',t2.district,t2.state) as location,
-							t3.username as ref,t3.name as refname,t2.date,t2.activation_date,t2.time,ifnull(t4.package,'--') as package,t4.amount as package_amount,t2.status,t5.name as distname,t6.name as statename";
+							t3.username as ref,t3.name as refname,t2.date,t2.activation_date,t2.time,ifnull(t4.package,'--') as package,t2.status";
 				
 				$this->db->group_start();
 				$regid_chunks = array_chunk($regids,25);
@@ -1194,8 +1192,6 @@ class Member_model extends CI_Model{
 				$this->db->join('members t2','t2.regid=t1.id','Left');
 				$this->db->join('users t3','t2.refid=t3.id','Left');
 				$this->db->join('packages t4','t2.package_id=t4.id','Left');
-				$this->db->join('area t5','t2.district=t5.id','Left');
-				$this->db->join('area t6','t2.state=t6.id','Left');
 				if($type=="active"){
 					$this->db->where("t2.status","1");
 					$query=$this->db->get();
@@ -1214,8 +1210,6 @@ class Member_model extends CI_Model{
 					$this->db->join('members t2','t2.regid=t1.id','Left');
 					$this->db->join('users t3','t2.refid=t3.id','Left');
 					$this->db->join('packages t4','t2.package_id=t4.id','Left');
-					$this->db->join('area t5','t2.district=t5.id','Left');
-				   $this->db->join('area t6','t2.state=t6.id','Left');
 					$this->db->where("t2.status","0");
 					$query=$this->db->get();
 					$array=$query->result_array();

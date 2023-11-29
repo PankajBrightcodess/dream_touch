@@ -70,30 +70,27 @@
         }
 
         function drawtree(memberid) {
-        //  alert(memberid);
+            debugger;
             $.ajax({
-                 
                 type: "POST",
                 url: "<?php echo base_url('members/treelistshow') ;?>",
                 data: {regid: memberid},
-                //  contentType: "application/json; charset=utf-8",
+                // contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(r) {
-                    
-                    // alert(JSON.stringify(r));
-                    // console.log(r);
+                  console.log(r);
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Entity');
                     data.addColumn('string', 'ParentEntity');
                     data.addColumn('string', 'ToolTip');
-                    
+                 
                     for (var i = 0; i < r.length; i++) {
                  
                         var memberId = r[i]['username'];
                         var regid = r[i]['regid'];
                         var memberName = r[i]['name'];
                         var parentId = r[i]['ref'] != null ? r[i]['ref'].toString() : '';
-                        //  var position = r.d[i][3];
+                        // var position = r.d[i][3];
                         var sponsorid = r[i]['ref'];
                         var Isactive = r[i]['package'];
                         
@@ -108,12 +105,12 @@
                         //create static div
                         var div = null;
                         if (check == true) {
-                            div = '<div onclick="drawChart(\'' + regid + '\')">';
+                            div = '<div onclick="gettree(\'' + regid + '\')">';
                         } else {
-                            div = '<div style="background-color:red;"  onclick="drawChart(\'' + regid + '\')">';
+                            div = '<div style="background-color:red;"  onclick="gettree(\'' + memberId + '\')">';
                         }
-                        div +='<div><img src = "<?php echo base_url('assets/images/image.png') ;?>"height="25px" width="25px"/></div>'  +  memberName + ' <br/><span>' + memberId + '</span>'+ '<div >' + activedate + '</div>'+ '<div >' + sponsorid + '</div>';
-                        //div +=  '<div><img src = "<?php echo base_url('assets/images/image.png') ;?>" height="20px" width="20px"/></div> '  + '<span style="width: 50px;">' + memberId + '</span>';
+                        // <img src = "<?php echo base_url('assets/images/image.png') ;?>"/>
+                        div += memberName + ' <br/><span>' + memberId + '</span>'+ '<div></div>'  + '<div style="width: 80px;">' + activedate + '</div>';
                         data.addRows([[{
                             v: memberId,
                             //f: memberName + ' <br/><span>' + memberId + '</span>' + '<div><img src = "<?php echo base_url('assets/images/image.png') ;?>" /></div>'
@@ -123,18 +120,18 @@
                     var chart = new google.visualization.OrgChart($("#chart")[0]);
                     chart.draw(data, { allowHtml: true });
                     $('.google-visualization-orgchart-node').addClass('treediv').css('border', '0');
-                },
-                failure: function (r) {
-                    // alert(r);
-                },
-                error: function (r) {
-                    // alert(r);
                 }
+                // failure: function (r) {
+                //     alert(r);
+                // },
+                // error: function (r) {
+                //     alert(r);
+                // }
             });
         }
 
         function gettree(memberid) {
-        //    alert(memberid);
+           // alert(memberid);
             drawtree(memberid)
         }
         function SearchTreedata() {
@@ -143,7 +140,7 @@
                 alert('Please Enter Member ID');
             }
             else {
-                drawtree(memid);
+                drawtree(memid)
             }
         }
         $(document).ready(function(e) {
