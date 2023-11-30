@@ -25,6 +25,8 @@
                                             echo create_form_input("text","name","Name",false,$user['name'],array("readonly"=>"true")); 
                                         ?>
                                     </div>
+                                   
+
                                     <div class="form-group hidden">
                                         <?php
                                             $type=array("request"=>"Cash");
@@ -52,7 +54,22 @@
                                             echo create_form_input("text","amount","Pin Amount",true,'',array("id"=>"amount","readonly"=>"true")); 
                                         ?>
                                     </div>
-                                    <div class="form-group request">
+                                    <div class="form-group">
+                                        <p class="text-bold">Wallet <span class="text-danger">*</span></p>
+                                        <select name="wallet" id="wallet" class="form-control">
+                                            <option value="">--Wallet--</option>
+                                            <option value="1">Level Wallet</option>
+                                            <option value="2">ROI Wallet</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <?php
+                                            echo create_form_input("text","wal_amount","Wallet Amount",false,"",array("id"=>"wal_amount","readonly"=>true,"placeholder"=>"Wallet Amount")); 
+                                        ?>
+                                    </div>
+                                    
+                                    <!-- <div class="form-group request">
                                         <?php
                                             echo create_form_input("textarea","details","Transaction Details",true,'',array("id"=>"details","rows"=>"2")); 
                                         ?>
@@ -72,14 +89,14 @@
                                                 <img  id="imagepreview" style="height:150px; width:250px;" >
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <?php
 									}
                                         echo create_form_input("hidden","","",false,'',array("id"=>"price")); 
                                         echo create_form_input("hidden","","",false,$package_price,array("id"=>"package_price")); 
                                         echo create_form_input("hidden","regid","",false,$user['id']); 
                                     ?>
-                                    <button type="submit" class="btn btn-sm btn-success" name="requestepin" value="Request">Request E-Pin</button>
+                                    <button type="submit" class="btn btn-sm btn-success" name="requestepin" id="btun" value="Request">Request E-Pin</button>
                                 <?php echo form_close(); ?>
                             </div>	
                             <div class="col-md-7">
@@ -133,6 +150,31 @@
 </section>
 <script>
 	$(document).ready(function(e) {
+        
+        $('body').on('change','#wallet',function(){
+            var wallet=$(this).val();
+			var amount = $('#amount').val();
+			$.ajax({
+				type:"POST",
+				url:"<?php echo base_url('members/getwalletamount'); ?>",
+				data:{wallet:wallet},
+				success: function(data){
+                  
+                    if(parseFloat(amount)<=parseFloat(data)){
+                        $('#wal_amount').val(data);
+                    }else{
+                        $('#wal_amount').val(data);
+                        $("#btun").attr("disabled", false);
+                        alert('Sorry! Your Wallet Amount is too low.')
+                    }
+					
+					// createDatatable();
+				},
+				error: function(data){
+					alert(JSON.stringify(data))
+				}
+			});
+        });
         $('#package_id').change(function(){
 			var package_id=$(this).val();
 			var package_price=$('#package_price').val();

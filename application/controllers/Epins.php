@@ -12,7 +12,6 @@ class Epins extends CI_Controller {
 		checklogin();
 		$data['title']="Generate E-Pin";
 		$data['breadcrumb']=array("/"=>"Home",""=>"E-Pins");
-		
 		$packages=$this->Package_model->getpackage(array("status"=>1));
 		$options=array(""=>"Select Package");
 		$package_price=array();
@@ -32,7 +31,6 @@ class Epins extends CI_Controller {
 			$regid=$data['user']['id'];
 			$data['requests']=$this->Epin_model->getmemberrequests(array("t1.regid"=>$regid));
 			$data['transaction_image']=$this->transaction_image;
-		
 			$this->template->load('epins','request',$data);
 		}
 	}
@@ -197,36 +195,82 @@ class Epins extends CI_Controller {
 	public function requestepin(){
 		if($this->input->post('requestepin')!==NULL){
 			$data=$this->input->post();
-			unset($data['requestepin']);
-			$name=$this->input->post('name');
-			unset($data['name']);
-			if($this->transaction_image){
-				$upload_path="./assets/uploads/receipt/";
-				$allowed_types="jpg|jpeg|png";
-				$data['image']=upload_file('image',$upload_path,$allowed_types,$name.'_receipt');
-				if($data['image']==''){
-					$this->session->set_flashdata("err_msg","Error Uploading Image! Please Try Again!");
-					redirect('epins/');
+			echo PRE;
+					print_r($data);die;
+			if($_SESSION['role']=='member'){
+				if($_POST['wal_amount']>$_POST['amount']){
+					
+					unset($data['requestepin']);
+					$name=$this->input->post('name');
+					unset($data['name']);
+					if($this->transaction_image){
+						$upload_path="./assets/uploads/receipt/";
+						$allowed_types="jpg|jpeg|png";
+						$data['image']=upload_file('image',$upload_path,$allowed_types,$name.'_receipt');
+						if($data['image']==''){
+							$this->session->set_flashdata("err_msg","Error Uploading Image! Please Try Again!");
+							redirect('epins/');
+						}
+					}
+					$result=$this->Epin_model->requestepin($data);
+					
+					if($result['status']===true){
+						if($data['type']!='request'){
+							$_POST=array();
+							$_POST['approveepin']='Approve';
+							$_POST['regid']=$data['regid'];
+							$_POST['package_id']=$data['package_id'];
+							$_POST['quantity']=$data['quantity'];
+							$_POST['amount']=$data['amount'];
+							$_POST['request_id']=$result['request_id'];
+							$this->approveepin();
+						}
+						$this->session->set_flashdata("msg","E-Pin Request Submitted successfully!");
+					}
+					else{
+						$this->session->set_flashdata("err_msg",$result['err']['message']);
+					}
+				}else{
+					$this->session->set_flashdata("err_msg","No Sufficient Balance for Generate Pin");
 				}
+				
+
+			}else{
+				unset($data['requestepin']);
+				$name=$this->input->post('name');
+				unset($data['name']);
+				if($this->transaction_image){
+					$upload_path="./assets/uploads/receipt/";
+					$allowed_types="jpg|jpeg|png";
+					$data['image']=upload_file('image',$upload_path,$allowed_types,$name.'_receipt');
+					if($data['image']==''){
+						$this->session->set_flashdata("err_msg","Error Uploading Image! Please Try Again!");
+						redirect('epins/');
+					}
+				}
+				$result=$this->Epin_model->requestepin($data);
+				
+				if($result['status']===true){
+					if($data['type']!='request'){
+						$_POST=array();
+						$_POST['approveepin']='Approve';
+						$_POST['regid']=$data['regid'];
+						$_POST['package_id']=$data['package_id'];
+						$_POST['quantity']=$data['quantity'];
+						$_POST['amount']=$data['amount'];
+						$_POST['request_id']=$result['request_id'];
+						$this->approveepin();
+					}
+					$this->session->set_flashdata("msg","E-Pin Request Submitted successfully!");
+				}
+				else{
+					$this->session->set_flashdata("err_msg",$result['err']['message']);
+				}
+
 			}
-			$result=$this->Epin_model->requestepin($data);
 			
-			if($result['status']===true){
-				if($data['type']!='request'){
-					$_POST=array();
-					$_POST['approveepin']='Approve';
-					$_POST['regid']=$data['regid'];
-					$_POST['package_id']=$data['package_id'];
-					$_POST['quantity']=$data['quantity'];
-					$_POST['amount']=$data['amount'];
-					$_POST['request_id']=$result['request_id'];
-					$this->approveepin();
-				}
-				$this->session->set_flashdata("msg","E-Pin Request Submitted successfully!");
-			}
-			else{
-				$this->session->set_flashdata("err_msg",$result['err']['message']);
-			}
+			
+			
 		}
 		redirect('epins/');
 	}

@@ -37,6 +37,24 @@ class Members extends CI_Controller {
 		echo PRE;
 		print_r($rec);die;
 	}
+
+	public function getwalletamount(){
+		$wallet = $this->input->post('wallet');
+		$data['user']=$this->Account_model->getuser(array("md5(id)"=>$this->session->userdata('user')));
+		$regid=$data['user']['id'];
+		$wallet_amount = 0;
+		if($wallet==1){
+		    $wallet_amount=$this->Wallet_model->getwallet($regid);
+			$wallet_amount =  $wallet_amount['actualwallet'];
+
+		}elseif($wallet==2){
+			$wallet_amount=$this->Wallet_model->getwallet_second($regid);
+			$wallet_amount =  $wallet_amount['actualwallet'];
+		}else{
+			$wallet_amount =  0.00;
+		}
+		echo $wallet_amount;
+	}
 	
 	public function registration(){
 		checklogin();
