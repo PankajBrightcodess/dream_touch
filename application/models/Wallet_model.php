@@ -194,8 +194,7 @@ class Wallet_model extends CI_Model{
 			// $query6 = $this->db->get();
 			// $transamount =  $query6->unbuffered_row('array');
 			// if($transamount==NULL){ $transamount=0; }
-			echo PRE;
-			print_r($transamount);die;
+			
 			
 		}
 		$result['bankwithdrawal']=$bankwithdrawal;
