@@ -22,7 +22,7 @@
                                                 <th>SL NO.</th>
                                                 <th>SENDER ID</th>
                                                 <th>SENDER NAME</th>
-                                                <!-- <th>NO OF MEMBERS</th> -->
+                                                <th>TYPE</th>
                                                 <th>TRANSFER AMOUNT</th>
                                                 <th class="select-filter">DATE</th>
                                             </tr>
@@ -36,6 +36,7 @@
 															<td><?php echo $i;?></td>
 															<td><?php echo $value['username'];?></td>
 															<td><?php echo $value['name'];?></td>
+															<td><?php echo $value['type'];?></td>
 															<td><?php echo $value['amount'];?></td>
 															<td><?php echo date('d-m-Y',strtotime($value['added_on']));?></td>
 														</tr>
