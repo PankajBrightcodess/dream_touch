@@ -187,8 +187,7 @@ class Wallet_model extends CI_Model{
 			$query6=$this->db->get_where("tmp_fund_transfer",$where7);
 			$getamount=$query6->row()->amount;
 			if($getamount==NULL){ $getamount=0; }
-			echo PRE;
-			print_r($getamount);die;
+			
 			// $this->db->where(array('sender_id'=>$regid,'type'=>""));
 			// $this->db->select_sum('amount');
 			// $this->db->from('');
@@ -203,7 +202,9 @@ class Wallet_model extends CI_Model{
 		$result['walletreceived']=$walletreceived;		
 		$result['epingeneration']=$epingeneration;
 		$result['actualwallet']=$wallet-$bankwithdrawal-$wallettransfers+$walletreceived+$getamount+$cancelled-$epingeneration-$transamount;
-		$result['wallet']=$result['actualwallet']-(10*$result['actualwallet'])/100;
+		$result['wallet']=$result['actualwallet'];
+		echo PRE;
+			print_r($result['wallet']);die;
 		return $result;
 
 	}
