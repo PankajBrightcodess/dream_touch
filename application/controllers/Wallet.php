@@ -291,19 +291,28 @@ class Wallet extends CI_Controller {
 		$this->template->load('wallet','level_fund_trans',$data);
 	}
 	public function addfund(){
+		$regid = $this->session->userdata('id');
+		$memberid = $this->db->get_where('users',array('id'=>$regid))->row('username');
 		$data = $this->input->post();
-		$send['sender_id'] = $this->session->userdata('id');
-		$send['receiver_id'] =  $data['sponsor_id'];
-		$send['amount'] = $data['transfer_amount'];
-		$send['type'] = $data['type'];
-		$send['added_on'] = date('Y-m-d');
-		$result=$this->Wallet_model->addfund($send);
+		
+		if($memberid!=$data['sponsor_id']){
+			$send['sender_id'] = $this->session->userdata('id');
+			$send['receiver_id'] =  $data['sponsor_id'];
+			$send['amount'] = $data['transfer_amount'];
+			$send['type'] = $data['type'];
+			$send['added_on'] = date('Y-m-d');
+			$result=$this->Wallet_model->addfund($send);
 			if($result===true){
 				$this->session->set_flashdata("msg","Amount Transferred successfully!");
 			}
 			else{
 				$this->session->set_flashdata("err_msg",$result['message']);
 			}
+		}else{
+			$this->session->set_flashdata("err_msg","Sorry! You can't transfer money yourself.");
+		}
+		
+		
 			redirect($_SERVER['HTTP_REFERER']);
 	}
 

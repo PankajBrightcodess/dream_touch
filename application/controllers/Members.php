@@ -31,7 +31,7 @@ class Members extends CI_Controller {
 		$date=date('Y-m-d',strtotime('-1 day'));
 		// echo PRE;
 		// print_r($date);die;
-		$date=date('Y-m-d');
+		// $date=date('Y-m-d');
 		$regid = $this->session->userdata('id');
 		$rec = $this->Wallet_model->roi_income($regid,$date);
 		echo PRE;

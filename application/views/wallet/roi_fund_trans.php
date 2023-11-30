@@ -44,8 +44,8 @@
                                          <div class="col-md-12">
                                         <div class="form-group">
                                                 <?php
-                                                    $attributes=array("id"=>"trans_amount","Placeholder"=>"Transfer Amount","autocomplete"=>"off");
-                                                    echo create_form_input("text","transfer_amount","Transfer Amount",true,'',$attributes); 
+                                                    $attributes=array("id"=>"trans_amount","Placeholder"=>"Transfer Amount","autocomplete"=>"off","min"=>100);
+                                                    echo create_form_input("number","transfer_amount","Transfer Amount",true,'',$attributes); 
                                                 ?>
 												<input type="hidden" name="type" value="roi_fund">
                                             </div>
