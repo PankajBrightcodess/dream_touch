@@ -55,6 +55,12 @@ class Members extends CI_Controller {
 		}
 		echo $wallet_amount;
 	}
+
+	public function levelincomedetails(){
+		$data = $this->input->get();
+		echo PRE;
+		print_r($data);die;
+	}
 	
 	public function registration(){
 		checklogin();

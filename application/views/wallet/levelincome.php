@@ -101,7 +101,7 @@
                                                 <td><?php echo $i; ?></td>
                                                 <td><?php if($income['date']!=''){echo date('d-m-Y',strtotime($income['date']));} ?></td>
                                                 <td><?php echo $income['rank']; ?></td>
-                                                <td><?php echo $this->amount->toDecimal($income['amount']); ?></td>
+                                                <td><a href="<?php echo base_url('members/levelincomedetails/?date='.$income['date'],'&rank='.$income['rank']);?>"><?php echo $this->amount->toDecimal($income['amount']); ?></td>
                                                 <td><?php echo $income['remarks']; ?></td>
                                             </tr>
                                             <?php
