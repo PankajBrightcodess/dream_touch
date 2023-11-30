@@ -194,6 +194,8 @@ class Wallet_model extends CI_Model{
 			// $query6 = $this->db->get();
 			// $transamount =  $query6->unbuffered_row('array');
 			// if($transamount==NULL){ $transamount=0; }
+			echo PRE;
+			print_r($transamount);die;
 			
 		}
 		$result['bankwithdrawal']=$bankwithdrawal;
@@ -203,8 +205,7 @@ class Wallet_model extends CI_Model{
 		$result['epingeneration']=$epingeneration;
 		$result['actualwallet']=$wallet-$bankwithdrawal-$wallettransfers+$walletreceived+$getamount+$cancelled-$epingeneration-$transamount;
 		$result['wallet']=$result['actualwallet'];
-		echo PRE;
-			print_r($result['wallet']);die;
+		
 		return $result;
 
 	}
