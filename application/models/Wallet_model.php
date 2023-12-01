@@ -894,6 +894,14 @@ class Wallet_model extends CI_Model{
 			return $this->db->get()->row('amount');
 
 		}
+		public function packageamount_bydate($regid,$date){
+			$this->db->select('t2.amount');
+			$this->db->from('members as t1');
+			$this->db->join('packages as t2','t1.package_id=t2.id','left');
+			$this->db->where(array('t1.regid'=>$regid,'t1.activation_date<'=>$date));
+			return $this->db->get()->row('amount');
+
+		}
 		public function generate_level_income($regid,$date=NULL){
 				if($date==NULL){ $date=date('Y-m-d'); }
 				$checkstatus=$this->checkstatus($regid,$date);

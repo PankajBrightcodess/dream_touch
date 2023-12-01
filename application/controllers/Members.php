@@ -57,9 +57,190 @@ class Members extends CI_Controller {
 	}
 
 	public function levelincomedetails(){
-		$data = $this->input->get();
+		$id = $this->input->get();
+		$data['user']=$this->Account_model->getuser(array("md5(id)"=>$this->session->userdata('user')));
+		$regid=$data['user']['id'];
+		$date = $id['date'];
+		$data = $this->db->get_where('level_income',array('regid'=>$regid))->result_array();
 		echo PRE;
 		print_r($data);die;
+					$current_date = new DateTime($date);
+					if(!empty($data)){
+						$l = $totalamount = array();
+						foreach ($data as $key => $value) {
+							// echo PRE;
+		// print_r($value);die;
+							$amount = $this->Wallet_model->packageamount_bydate($value['child_member_id'],$date);
+							
+							if($value['level']==1){
+								if($amount==999.00){
+									$amt = 10*0.5;
+								}elseif($amount==1999.00){
+									$amt = 20*0.5;
+								}elseif($amount==4999.00){
+									$amt = 50*0.5;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level1'] = $amt;
+									$l['child_member_id'] = $value['child_member_id'];
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==2){
+								if($amount==999.00){
+									$amt = 10*0.3;
+								}elseif($amount==1999.00){
+									$amt = 20*0.3;
+								}elseif($amount==4999.00){
+									$amt = 50*0.3;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level2'] = $amt;
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==3){
+								if($amount==999.00){
+									$amt = 10*0.2;
+								}elseif($amount==1999.00){
+									$amt = 20*0.2;
+								}elseif($amount==4999.00){
+									$amt = 50*0.2;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level3'] = $amt;
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==4){
+								if($amount==999.00){
+									$amt = 10*0.1;
+								}elseif($amount==1999.00){
+									$amt = 20*0.1;
+								}elseif($amount==4999.00){
+									$amt = 50*0.1;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level4'] = $amt;
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==5){
+								if($amount==999.00){
+									$amt = 10*0.1;
+								}elseif($amount==1999.00){
+									$amt = 20*0.1;
+								}elseif($amount==4999.00){
+									$amt = 50*0.1;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level5'] = $amt;
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==6){
+								if($amount==999.00){
+									$amt = 10*0.1;
+								}elseif($amount==1999.00){
+									$amt = 20*0.1;
+								}elseif($amount==4999.00){
+									$amt = 50*0.1;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level6'] = $amt;
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==7){
+								if($amount==999.00){
+									$amt = 10*0.1;
+								}elseif($amount==1999.00){
+									$amt = 20*0.1;
+								}elseif($amount==4999.00){
+									$amt = 50*0.1;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level7'] = $amt;
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==8){
+								if($amount==999.00){
+									$amt = 10*0.1;
+								}elseif($amount==1999.00){
+									$amt = 20*0.1;
+								}elseif($amount==4999.00){
+									$amt = 50*0.1;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level8'] = $amt;
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==9){
+								if($amount==999.00){
+									$amt = 10*0.1;
+								}elseif($amount==1999.00){
+									$amt = 20*0.1;
+								}elseif($amount==4999.00){
+									$amt = 50*0.1;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level9'] = $amt;
+									$totalamount[] = $l;
+								}
+							}elseif($value['level']==10){
+								if($amount==999.00){
+									$amt = 10*0.1;
+								}elseif($amount==1999.00){
+									$amt = 20*0.1;
+								}elseif($amount==4999.00){
+									$amt = 50*0.1;
+								}
+								$last_date = $value['last_date'];
+								$last_date = new DateTime($last_date);
+								if($current_date < $last_date){
+									$l['level10'] = $amt;
+									$totalamount[] = $l;
+								}
+							}
+						}
+						echo PRE;
+						print_R($totalamount);die;
+						$finalarray=$arr= array();
+						if(!empty($totalamount)){
+						   foreach ($totalamount as $key => $value) {
+							$this->db->select('username,name');
+							$arr =  $this->db->get_where('users',array('id'=>$value['child_member_id']))->result_array();
+							$value['username'] = $arr[0]['username'];
+							$value['name'] = $arr[0]['name'];
+							$finalarray[] = $value;
+
+						   }
+						}
+						$data['rec'] = $finalarray;
+						$data['title']="Level Payment Details";
+						$data['datatable']=true;
+						$this->template->load("members","levelincomedetails",$data);
+
+						
+
+						
+						
+
+					
+						
+					}
 	}
 	
 	public function registration(){

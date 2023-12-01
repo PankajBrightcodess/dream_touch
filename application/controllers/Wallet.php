@@ -244,13 +244,13 @@ class Wallet extends CI_Controller {
 				$where['DAY(date)'] = '30';
 			}
 		}
-		if(isset($rec['level']) && !empty($rec['level'])){
-			if($rec['level']==1){
-				$where['rank'] = "1st Level";
-			}elseif($rec['level']==2){
-				$where['rank'] = "2nd Level";
-			}
-		}
+		// if(isset($rec['level']) && !empty($rec['level'])){
+		// 	if($rec['level']==1){
+		// 		$where['rank'] = "1st Level";
+		// 	}elseif($rec['level']==2){
+		// 		$where['rank'] = "2nd Level";
+		// 	}
+		// }
 		$data['user']=$this->Account_model->getuser(array("md5(id)"=>$this->session->userdata('user')));
 		$regid=$data['user']['id'];
 		$where['regid'] = $regid;
@@ -259,7 +259,7 @@ class Wallet extends CI_Controller {
 		$data['title']="Level Incomes";
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Wallet_model->levelin($where);
-		// echo PRE;
+			 // echo PRE;
 		// print_r($data['incomes']);die;
 		$data['datatable']=true;
 		$this->template->load('wallet','levelincome',$data);
