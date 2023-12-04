@@ -263,7 +263,7 @@ class Wallet_model extends CI_Model{
 			if(!empty($record)){
 				foreach($record as $key1 => $value1) {
 					if($value1['level']=='1'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.5;
 						}elseif($amount==1999.00){
@@ -273,7 +273,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level1[] = $amt;
 					}elseif($value1['level']=='2'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.3;
 						}elseif($amount==1999.00){
@@ -283,7 +283,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level2[] = $amt;
 					}elseif($value1['level']=='3'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.2;
 						}elseif($amount==1999.00){
@@ -293,7 +293,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level3[] = $amt;
 					}elseif($value1['level']=='4'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.1;
 						}elseif($amount==1999.00){
@@ -303,7 +303,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level4[] = $amt;
 					}elseif($value1['level']=='5'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.1;
 						}elseif($amount==1999.00){
@@ -313,7 +313,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level5[] = $amt;
 					}elseif($value1['level']=='6'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.1;
 						}elseif($amount==1999.00){
@@ -323,7 +323,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level6[] = $amt;
 					}elseif($value1['level']=='7'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.1;
 						}elseif($amount==1999.00){
@@ -333,7 +333,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level7[] = $amt;
 					}elseif($value1['level']=='8'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.1;
 						}elseif($amount==1999.00){
@@ -343,7 +343,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level8[] = $amt;
 					}elseif($value1['level']=='9'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.1;
 						}elseif($amount==1999.00){
@@ -353,7 +353,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level9[] = $amt;
 					}elseif($value1['level']=='10'){
-						$amount = $value['amount'];
+						$amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10*0.1;
 						}elseif($amount==1999.00){
