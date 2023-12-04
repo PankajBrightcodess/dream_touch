@@ -12,8 +12,9 @@ class Wallet extends CI_Controller {
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['user']=$this->Account_model->getuser(array("md5(id)"=>$this->session->userdata('user')));
 		$regid=$data['user']['id'];
-		// $this->Wallet_model->addcommission($regid);
-		$data['wallet']=$this->Wallet_model->getwallet($regid);
+		$amount=$this->Member_model->memberwalletincome_amount();
+		$amt['actualwallet'] = $amount['amount'];
+		$data['wallet'] = $amt;
 		$members=$this->Wallet_model->getmemberrequests(array("regid"=>$regid));
 		$data['members']=$members;
 		$data['datatable']=true;

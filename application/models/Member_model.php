@@ -194,7 +194,27 @@ class Member_model extends CI_Model{
 		$this->db->select_sum('amount');
 		$this->db->from('tmp_wallet');
 		$qry = $this->db->get();
-		return $qry->unbuffered_row('array');
+		$amount = $qry->unbuffered_row('array');
+		$transamount = 0;
+		if($amount>0){
+			$this->db->where(array('sender_id'=>$regid,'type'=>'level_fund'));
+			$this->db->select_sum('amount');
+			$this->db->from('tmp_fund_transfer');
+			$qrya = $this->db->get();
+			$transamount =  $qrya->unbuffered_row('array');
+		}
+
+		$memberid = $this->db->get_where('users',array('id'=>$regid))->row('username');
+		$where7=array("receiver_id"=>$memberid,"type"=>"level_fund");
+		$this->db->select_sum('amount');
+		$query6=$this->db->get_where("tmp_fund_transfer",$where7);
+		$getamount=$query6->row()->amount;
+		if($getamount==NULL){ $getamount=0; }
+
+
+
+		$amount['amount'] = $amount['amount']-$transamount['amount']+$getamount;
+		return $amount;
 	}
 
 	public function getfundtransgferlist(){
