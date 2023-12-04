@@ -82,7 +82,7 @@ class Members extends CI_Controller {
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
-								if($current_date < $last_date){
+								if($current_date > $last_date){
 									$l['level1'] = $amt;
 									$l['child_member_id'] = $value['child_member_id'];
 									$totalamount[] = $l;
