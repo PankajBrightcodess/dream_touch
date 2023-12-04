@@ -1053,7 +1053,9 @@ class Members extends CI_Controller {
 					//$smsdata=array("mobile"=>$memberdata['mobile'],"message"=>$message);
 					$email = $_SESSION['emailset'];
 					unset($_SESSION['emailset']);
-					mail($email,PROJECT_NAME,$message);
+					$a = mail($email,PROJECT_NAME,$message);
+					echo PRE;
+					print_r($a);die;
 					
 					
 					// send_sms($smsdata);
