@@ -259,8 +259,8 @@ class Wallet extends CI_Controller {
 		$data['title']="Level Incomes";
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Wallet_model->levelin($where);
-			 echo PRE;
-		print_r($data['incomes']);die;
+		// 	 echo PRE;
+		// print_r($data['incomes']);die;
 		$data['datatable']=true;
 		$this->template->load('wallet','levelincome',$data);
 	}

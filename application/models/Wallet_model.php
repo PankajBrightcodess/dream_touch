@@ -255,17 +255,22 @@ class Wallet_model extends CI_Model{
 		$rec =  $this->db->get_where("wallet",$where)->result_array();
 		$rec_date = array_column($rec,'date');
 		$regid = $this->session->userdata('id');
-		
+		// echo PRE;
+		// print_r($rec);die;
 		foreach ($rec as $key => $value) {
 			$level1 = $level2 = $level3 = $level4 =$level5=$level6=$level7=$level8=$level9=$level10=array();
 			$amt =$amount= 0;
 			// $record = $this->Member_model->levelwisemembers($regid,$value['date']);
 			$record = $this->db->get_where('level_income',array('regid'=>$regid,'date<'=>$value['date']))->result_array();
-		
+			// echo PRE;
+			// print_r($record);die;
 			if(!empty($record)){
 				foreach($record as $key1 => $value1) {
+					// echo PRE;
+					// print_r($value['date']);die;
 					$amount = $this->packageamount_bydate($value1['child_member_id'],$value['date']);
-					
+					// echo PRE;
+					// print_r($amount);die;
 					if($value1['level']=='1'){
 						// $amount = $value1['amount'];
 						if($amount==999.00){
@@ -369,8 +374,9 @@ class Wallet_model extends CI_Model{
 					}
 				}
 			}
-			echo PRE;
-			print_r($level1);die;
+			// echo PRE;
+			// 		print_r($level1);die;
+					
 			if($value['rank']=="1st Level"){
 				$rec[$key]['total_amount'] = array_sum($level1);
 				$rec[$key]['persentage'] = "50%";
