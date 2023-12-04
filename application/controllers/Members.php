@@ -82,7 +82,7 @@ class Members extends CI_Controller {
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
-								if($current_date > $last_date){
+								if($current_date < $last_date){
 									$l['level1'] = $amt;
 									$l['child_member_id'] = $value['child_member_id'];
 									$totalamount[] = $l;
@@ -97,7 +97,7 @@ class Members extends CI_Controller {
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
-								if($current_date > $last_date){
+								if($current_date < $last_date){
 									$l['level2'] = $amt;
 									$totalamount[] = $l;
 								}
@@ -111,7 +111,7 @@ class Members extends CI_Controller {
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
-								if($current_date > $last_date){
+								if($current_date < $last_date){
 									$l['level3'] = $amt;
 									$totalamount[] = $l;
 								}
@@ -139,7 +139,7 @@ class Members extends CI_Controller {
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
-								if($current_date > $last_date){
+								if($current_date < $last_date){
 									$l['level5'] = $amt;
 									$totalamount[] = $l;
 								}
@@ -153,7 +153,7 @@ class Members extends CI_Controller {
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
-								if($current_date > $last_date){
+								if($current_date < $last_date){
 									$l['level6'] = $amt;
 									$totalamount[] = $l;
 								}
@@ -167,7 +167,7 @@ class Members extends CI_Controller {
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
-								if($current_date > $last_date){
+								if($current_date < $last_date){
 									$l['level7'] = $amt;
 									$totalamount[] = $l;
 								}
@@ -215,8 +215,8 @@ class Members extends CI_Controller {
 								}
 							}
 						}
-						// echo PRE;
-						// print_R($totalamount);die;
+						echo PRE;
+						print_R($totalamount);die;
 						$finalarray=$arr= array();
 						if(!empty($totalamount)){
 						   foreach ($totalamount as $key => $value) {
@@ -228,8 +228,6 @@ class Members extends CI_Controller {
 
 						   }
 						}
-						echo PRE;
-						print_r($finalarray);die;
 						$data['rec'] = $finalarray;
 						$data['title']="Level Payment Details";
 						$data['datatable']=true;
