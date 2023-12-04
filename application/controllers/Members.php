@@ -1046,19 +1046,15 @@ class Members extends CI_Controller {
 				}
 				$data=array("userdata"=>$userdata,"memberdata"=>$memberdata,"accountdata"=>$accountdata,"treedata"=>$treedata);
 				$result=$this->Member_model->addmember($data);
-			
+				
 				if($result['status']===true){
-					$message = "Welcome $memberdata[name]! Thank you for joining ".PROJECT_NAME."! Your UserID is $result[username] and Password is $result[password] and Trans. Password is $result[trans_password]. ";
+					$message = "Welcome $memberdata[name]! Thank you for joining ".PROJECT_NAME."! Your UserID is $result[username] and Password is $result[password] ";
 					$message.= "Visit our site ".str_replace('members.','',base_url()).".";
 					//$smsdata=array("mobile"=>$memberdata['mobile'],"message"=>$message);
 					$email = $_SESSION['emailset'];
-					echo PRE;
-					print_r($email);
 					unset($_SESSION['emailset']);
-				
-		
 					mail($email,PROJECT_NAME,$message);
-					die;
+					
 					
 					// send_sms($smsdata);
 					$flash=array("mname"=>$memberdata['name'],"uname"=>$result['username'],"pass"=>$result['password']);
