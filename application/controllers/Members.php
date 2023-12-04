@@ -228,6 +228,8 @@ class Members extends CI_Controller {
 
 						   }
 						}
+						// echo PRE;
+						// print_R($finalarray);die;
 						$data['rec'] = $finalarray;
 						$data['title']="Level Payment Details";
 						$data['datatable']=true;
