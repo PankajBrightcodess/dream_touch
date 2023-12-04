@@ -229,6 +229,8 @@ class Wallet_model extends CI_Model{
 	}
 
 	
+
+	
 	public function instantreferalincome($regid){
 		$this->db->order_by("id");
 		$array=$this->db->get_where("wallet",array("regid"=>$regid,"amount>"=>"0","remarks"=>"Direct Sponsor Income"))->result_array();
@@ -244,12 +246,14 @@ class Wallet_model extends CI_Model{
 		$array=$this->db->get_where("wallet",array("regid"=>$regid,"amount>"=>"0","remarks"=>"Car Reward"))->result_array();
 		return $array;
 	}
-
+	// $members=$this->Member_model->getdirectativemembers($regid,$date);
 	public function levelin($where){
 		// echo PRE;
 		// print_r($where);die;
 		$this->db->order_by("id");
-		return $this->db->get_where("wallet",$where)->result_array();
+		$rec =  $this->db->get_where("wallet",$where)->result_array();
+		echo PRE;
+		print_r($rec);die;
 		// return $this->db->last_query();
 		//  $array;
 	}
