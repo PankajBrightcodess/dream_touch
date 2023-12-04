@@ -258,7 +258,7 @@ class Wallet_model extends CI_Model{
 		
 		foreach ($rec as $key => $value) {
 			$level1 = $level2 = $level3 = $level4 =$level5=$level6=$level7=$level8=$level9=$level10=array();
-			$amt = 0;
+			$amt =$amount= 0;
 			// $record = $this->Member_model->levelwisemembers($regid,$value['date']);
 			$record = $this->db->get_where('level_income',array('regid'=>$regid,'date<'=>$value['date']))->result_array();
 			if(!empty($record)){
