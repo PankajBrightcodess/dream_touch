@@ -303,6 +303,8 @@ class Wallet extends CI_Controller {
 			$send['type'] = $data['type'];
 			$send['added_on'] = date('Y-m-d');
 			$result=$this->Wallet_model->addfund($send);
+			echo PRE;
+			print_r($result);die;
 			if($result===true){
 				$this->session->set_flashdata("msg","Amount Transferred successfully!");
 			}
