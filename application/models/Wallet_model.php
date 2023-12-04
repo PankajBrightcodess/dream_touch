@@ -261,13 +261,12 @@ class Wallet_model extends CI_Model{
 			$amt =$amount= 0;
 			// $record = $this->Member_model->levelwisemembers($regid,$value['date']);
 			$record = $this->db->get_where('level_income',array('regid'=>$regid,'date<'=>$value['date']))->result_array();
-			echo PRE;
-					print_r($record);die;
+		
 			if(!empty($record)){
 				foreach($record as $key1 => $value1) {
-					
+					$amount = $this->packageamount($value1['child_member_id']);
 					if($value1['level']=='1'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -277,7 +276,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level1[] = $amt;
 					}elseif($value1['level']=='2'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -287,7 +286,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level2[] = $amt;
 					}elseif($value1['level']=='3'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -297,7 +296,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level3[] = $amt;
 					}elseif($value1['level']=='4'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -307,7 +306,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level4[] = $amt;
 					}elseif($value1['level']=='5'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -317,7 +316,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level5[] = $amt;
 					}elseif($value1['level']=='6'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -327,7 +326,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level6[] = $amt;
 					}elseif($value1['level']=='7'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -337,7 +336,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level7[] = $amt;
 					}elseif($value1['level']=='8'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -347,7 +346,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level8[] = $amt;
 					}elseif($value1['level']=='9'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
@@ -357,7 +356,7 @@ class Wallet_model extends CI_Model{
 						}
 						$level9[] = $amt;
 					}elseif($value1['level']=='10'){
-						$amount = $value1['amount'];
+						// $amount = $value1['amount'];
 						if($amount==999.00){
 							$amt = 10;
 						}elseif($amount==1999.00){
