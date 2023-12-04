@@ -289,6 +289,8 @@ class Wallet extends CI_Controller {
 		$data['title']="Level Fund Transfer";
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Member_model->memberlevelincome_amount();
+		echo PRE;
+		print_r($data['incomes']);die;
 		$data['fundtranslist'] = $this->Member_model->getfundtransgferlistforlevel();
 		$data['datatable']=true;
 		$this->template->load('wallet','level_fund_trans',$data);
