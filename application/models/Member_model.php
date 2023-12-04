@@ -322,7 +322,7 @@ class Member_model extends CI_Model{
 			return $this->db->get()->result_array();
 
 
-			return $this->db->get_where("tmp_fund_transfer",$where7)->result_array();
+			// return $this->db->get_where("tmp_fund_transfer",$where7)->result_array();
 	}
 
 	public function leadership_bonus(){
