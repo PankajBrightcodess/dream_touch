@@ -93,6 +93,7 @@ class Home extends CI_Controller {
 			$date=date('Y-m-d');
 		}
 		// $date=date('Y-m-d',strtotime('-1 day'));
+		
 		$this->Wallet_model->addallcommission($date);
 		$time2 = microtime(true);
 		$time=$time2-$time1;
