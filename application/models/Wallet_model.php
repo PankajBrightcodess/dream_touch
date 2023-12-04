@@ -255,6 +255,7 @@ class Wallet_model extends CI_Model{
 		$rec =  $this->db->get_where("wallet",$where)->result_array();
 		$rec_date = array_column($rec,'date');
 		$regid = $this->session->userdata('id');
+		$level1 = $level2 = $level3 = $level4 =$level5=$level6=$level7=$level8=$level9=$level10=array();
 		foreach ($rec as $key => $value) {
 			$record = $this->Member_model->levelwisemembers($regid,$value['date']);
 			if(!empty($record)){
@@ -281,13 +282,32 @@ class Wallet_model extends CI_Model{
 						$level10[] = $value['amount'];
 					}
 				}
-
-				echo PRE;
-				print_r($value);die;
+			}
+			if($value['rank']=="1st Level"){
+				$rec[$key]['total_amount'] = array_sum($level1);
+				
+			}elseif($value['rank']=="2nd Level"){
+				$rec[$key]['total_amount'] = array_sum($level2);
+			}elseif($value['rank']=="3rd Level"){
+				$rec[$key]['total_amount'] = array_sum($level3);
+			}elseif($value['rank']=="4th Level"){
+				$rec[$key]['total_amount'] = array_sum($level4);
+			}elseif($value['rank']=="5th Level"){
+				$rec[$key]['total_amount'] = array_sum($level5);
+			}elseif($value['rank']=="6th Level"){
+				$rec[$key]['total_amount'] = array_sum($level6);
+			}elseif($value['rank']=="7th Level"){
+				$rec[$key]['total_amount'] = array_sum($level7);
+			}elseif($value['rank']=="8th Level"){
+				$rec[$key]['total_amount'] = array_sum($level8);
+			}elseif($value['rank']=="9th Level"){
+				$rec[$key]['total_amount'] = array_sum($level9);
+			}elseif($value['rank']=="10th Level"){
+				$rec[$key]['total_amount'] = array_sum($level10);
 			}
 		}
 		echo PRE;
-		print_r($rec_date);die;
+		print_r($rec);die;
 		// return $this->db->last_query();
 		//  $array;
 	}
