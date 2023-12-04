@@ -257,8 +257,34 @@ class Wallet_model extends CI_Model{
 		$regid = $this->session->userdata('id');
 		foreach ($rec as $key => $value) {
 			$record = $this->Member_model->levelwisemembers($regid,$value['date']);
-			echo PRE;
-		print_r($record);die;
+			if(!empty($record)){
+				foreach($record as $key => $value1) {
+					if($value1['level']=='1'){
+						$level1[] = $value['amount'];
+					}elseif($value1['level']=='2'){
+						$level2[] = $value['amount'];
+					}elseif($value1['level']=='3'){
+						$level3[] = $value['amount'];
+					}elseif($value1['level']=='4'){
+						$level4[] = $value['amount'];
+					}elseif($value1['level']=='5'){
+						$level5[] = $value['amount'];
+					}elseif($value1['level']=='6'){
+						$level6[] = $value['amount'];
+					}elseif($value1['level']=='7'){
+						$level7[] = $value['amount'];
+					}elseif($value1['level']=='8'){
+						$level8[] = $value['amount'];
+					}elseif($value1['level']=='9'){
+						$level9[] = $value['amount'];
+					}elseif($value1['level']=='10'){
+						$level10[] = $value['amount'];
+					}
+				}
+
+				echo PRE;
+				print_r($value);die;
+			}
 		}
 		echo PRE;
 		print_r($rec_date);die;
