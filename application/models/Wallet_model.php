@@ -401,10 +401,7 @@ class Wallet_model extends CI_Model{
 				$rec[$key]['persentage'] = "10%";
 			}
 		}
-		echo PRE;
-		print_r($rec);die;
-		// return $this->db->last_query();
-		//  $array;
+		return $rec;
 	}
 	public function roiin($where){
 		$this->db->order_by("id","DESC");
@@ -1071,11 +1068,14 @@ class Wallet_model extends CI_Model{
 							$amount = $this->packageamount($value['child_member_id']);
 							if($value['level']==1){
 								if($amount==999.00){
-									$amt = 10*0.5;
+									// $amt = 10*0.5;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.5;
+									// $amt = 20*0.5;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.5;
+									// $amt = 50*0.5;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1085,11 +1085,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==2){
 								if($amount==999.00){
-									$amt = 10*0.3;
+									// $amt = 10*0.3;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.3;
+									// $amt = 20*0.3;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.3;
+									// $amt = 50*0.3;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1099,11 +1102,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==3){
 								if($amount==999.00){
-									$amt = 10*0.2;
+									// $amt = 10*0.2;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.2;
+									// $amt = 20*0.2;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.2;
+									// $amt = 50*0.2;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1113,11 +1119,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==4){
 								if($amount==999.00){
-									$amt = 10*0.1;
+									// $amt = 10*0.1;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.1;
+									// $amt = 20*0.1;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.1;
+									// $amt = 50*0.1;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1127,11 +1136,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==5){
 								if($amount==999.00){
-									$amt = 10*0.1;
+									// $amt = 10*0.1;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.1;
+									// $amt = 20*0.1;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.1;
+									// $amt = 50*0.1;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1141,11 +1153,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==6){
 								if($amount==999.00){
-									$amt = 10*0.1;
+									// $amt = 10*0.1;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.1;
+									// $amt = 20*0.1;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.1;
+									// $amt = 50*0.1;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1155,11 +1170,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==7){
 								if($amount==999.00){
-									$amt = 10*0.1;
+									$amt = 10;
+									// $amt = 10*0.1;
 								}elseif($amount==1999.00){
-									$amt = 20*0.1;
+									// $amt = 20*0.1;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.1;
+									// $amt = 50*0.1;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1169,11 +1187,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==8){
 								if($amount==999.00){
-									$amt = 10*0.1;
+									// $amt = 10*0.1;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.1;
+									// $amt = 20*0.1;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.1;
+									// $amt = 50*0.1;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1183,11 +1204,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==9){
 								if($amount==999.00){
-									$amt = 10*0.1;
+									// $amt = 10*0.1;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.1;
+									// $amt = 20*0.1;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.1;
+									// $amt = 50*0.1;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1197,11 +1221,14 @@ class Wallet_model extends CI_Model{
 								}
 							}elseif($value['level']==10){
 								if($amount==999.00){
-									$amt = 10*0.1;
+									// $amt = 10*0.1;
+									$amt = 10;
 								}elseif($amount==1999.00){
-									$amt = 20*0.1;
+									// $amt = 20*0.1;
+									$amt = 20;
 								}elseif($amount==4999.00){
-									$amt = 50*0.1;
+									// $amt = 50*0.1;
+									$amt = 50;
 								}
 								$last_date = $value['last_date'];
 								$last_date = new DateTime($last_date);
@@ -1224,6 +1251,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level1)){
 							$amts = array_sum($level1);
+							$amts = $amts*0.5;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"1st Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"1st Level");
@@ -1236,7 +1264,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level2)){
 							$amts = array_sum($level2);
-							
+							$amts = $amts*0.3;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"2nd Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"2nd Level");
@@ -1249,6 +1277,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level3)){
 							$amts = array_sum($level3);
+							$amts = $amts*0.2;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"3rd Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"3rd Level");
@@ -1261,6 +1290,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level4)){
 							$amts = array_sum($level4);
+							$amts = $amts*0.1;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"4th Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"4th Level");
@@ -1273,6 +1303,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level5)){
 							$amts = array_sum($level5);
+							$amts = $amts*0.1;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"5th Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"5th Level");
@@ -1285,6 +1316,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level6)){
 							$amts = array_sum($level6);
+							$amts = $amts*0.1;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"6th Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"6th Level");
@@ -1297,6 +1329,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level7)){
 							$amts = array_sum($level7);
+							$amts = $amts*0.1;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"7th Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"7th Level");
@@ -1309,6 +1342,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level8)){
 							$amts = array_sum($level8);
+							$amts = $amts*0.1;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"8th Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"8th Level");
@@ -1321,6 +1355,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level9)){
 							$amts = array_sum($level9);
+							$amts = $amts*0.1;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"9th Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"9th Level");
@@ -1333,6 +1368,7 @@ class Wallet_model extends CI_Model{
 
 						if(!empty($level10)){
 							$amts = array_sum($level10);
+							$amts = $amts*0.1;
 							if($amts>0){
 								$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amts,"remarks"=>"Level Income","rank"=>"10th Level","added_on"=>date('Y-m-d H:i:s'));
 								$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"Level Income","rank"=>"10th Level");
