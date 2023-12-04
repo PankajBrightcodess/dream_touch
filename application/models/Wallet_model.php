@@ -265,6 +265,8 @@ class Wallet_model extends CI_Model{
 			if(!empty($record)){
 				foreach($record as $key1 => $value1) {
 					$amount = $this->packageamount($value1['child_member_id']);
+					echo PRE;
+					print_r($amount);die;
 					if($value1['level']=='1'){
 						// $amount = $value1['amount'];
 						if($amount==999.00){
