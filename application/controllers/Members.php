@@ -215,8 +215,8 @@ class Members extends CI_Controller {
 								}
 							}
 						}
-						echo PRE;
-						print_R($totalamount);die;
+						// echo PRE;
+						// print_R($totalamount);die;
 						$finalarray=$arr= array();
 						if(!empty($totalamount)){
 						   foreach ($totalamount as $key => $value) {
