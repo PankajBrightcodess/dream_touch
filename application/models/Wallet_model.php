@@ -262,25 +262,105 @@ class Wallet_model extends CI_Model{
 			if(!empty($record)){
 				foreach($record as $key1 => $value1) {
 					if($value1['level']=='1'){
-						$level1[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.5;
+						}elseif($amount==1999.00){
+							$amt = 20*0.5;
+						}elseif($amount==4999.00){
+							$amt = 50*0.5;
+						}
+						$level1[] = $amt;
 					}elseif($value1['level']=='2'){
-						$level2[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.3;
+						}elseif($amount==1999.00){
+							$amt = 20*0.3;
+						}elseif($amount==4999.00){
+							$amt = 50*0.3;
+						}
+						$level2[] = $amt;
 					}elseif($value1['level']=='3'){
-						$level3[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.2;
+						}elseif($amount==1999.00){
+							$amt = 20*0.2;
+						}elseif($amount==4999.00){
+							$amt = 50*0.2;
+						}
+						$level3[] = $amt;
 					}elseif($value1['level']=='4'){
-						$level4[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.1;
+						}elseif($amount==1999.00){
+							$amt = 20*0.1;
+						}elseif($amount==4999.00){
+							$amt = 50*0.1;
+						}
+						$level4[] = $amt;
 					}elseif($value1['level']=='5'){
-						$level5[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.1;
+						}elseif($amount==1999.00){
+							$amt = 20*0.1;
+						}elseif($amount==4999.00){
+							$amt = 50*0.1;
+						}
+						$level5[] = $amt;
 					}elseif($value1['level']=='6'){
-						$level6[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.1;
+						}elseif($amount==1999.00){
+							$amt = 20*0.1;
+						}elseif($amount==4999.00){
+							$amt = 50*0.1;
+						}
+						$level6[] = $amt;
 					}elseif($value1['level']=='7'){
-						$level7[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.1;
+						}elseif($amount==1999.00){
+							$amt = 20*0.1;
+						}elseif($amount==4999.00){
+							$amt = 50*0.1;
+						}
+						$level7[] = $amt;
 					}elseif($value1['level']=='8'){
-						$level8[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.1;
+						}elseif($amount==1999.00){
+							$amt = 20*0.1;
+						}elseif($amount==4999.00){
+							$amt = 50*0.1;
+						}
+						$level8[] = $amt;
 					}elseif($value1['level']=='9'){
-						$level9[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.1;
+						}elseif($amount==1999.00){
+							$amt = 20*0.1;
+						}elseif($amount==4999.00){
+							$amt = 50*0.1;
+						}
+						$level9[] = $amt;
 					}elseif($value1['level']=='10'){
-						$level10[] = $value['amount'];
+						$amount = $value['amount'];
+						if($amount==999.00){
+							$amt = 10*0.1;
+						}elseif($amount==1999.00){
+							$amt = 20*0.1;
+						}elseif($amount==4999.00){
+							$amt = 50*0.1;
+						}
+						$level10[] = $amt;
 					}
 				}
 			}
