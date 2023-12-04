@@ -1084,7 +1084,7 @@ class Wallet_model extends CI_Model{
 		}
 
 		public function addfund($data){
-			$this->db->insert("tmp_fund_transfer",$data);
+			return $this->db->insert("tmp_fund_transfer",$data);
 		}
 
 

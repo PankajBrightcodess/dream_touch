@@ -303,13 +303,11 @@ class Wallet extends CI_Controller {
 			$send['type'] = $data['type'];
 			$send['added_on'] = date('Y-m-d');
 			$result=$this->Wallet_model->addfund($send);
-			echo PRE;
-			print_r($result);die;
 			if($result===true){
 				$this->session->set_flashdata("msg","Amount Transferred successfully!");
 			}
 			else{
-				$this->session->set_flashdata("err_msg",$result['message']);
+				$this->session->set_flashdata("err_msg","Something Error");
 			}
 		}else{
 			$this->session->set_flashdata("err_msg","Sorry! You can't transfer money yourself.");
