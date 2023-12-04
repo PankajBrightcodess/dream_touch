@@ -280,8 +280,8 @@ class Wallet extends CI_Controller {
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Member_model->memberroiincome_amount();
 		$data['fundtranslist'] = $this->Member_model->getfundreceivelist();
-		echo PRE;
-		print_r($data['fundtranslist']);die;
+		// echo PRE;
+		// print_r($data['fundtranslist']);die;
 		$data['datatable']=true;
 		$this->template->load('wallet','fund_receive',$data);
 	}
