@@ -255,8 +255,8 @@ class Wallet_model extends CI_Model{
 		$rec =  $this->db->get_where("wallet",$where)->result_array();
 		$rec_date = array_column($rec,'date');
 		$regid = $this->session->userdata('id');
-		foreach ($rec_date as $key => $value) {
-			$record = $this->Member_model->levelwisemembers($regid,$value);
+		foreach ($rec as $key => $value) {
+			$record = $this->Member_model->levelwisemembers($regid,$value['date']);
 			echo PRE;
 		print_r($record);die;
 		}
