@@ -246,6 +246,8 @@ class Wallet_model extends CI_Model{
 	}
 
 	public function levelin($where){
+		// echo PRE;
+		// print_r($where);die;
 		$this->db->order_by("id");
 		return $this->db->get_where("wallet",$where)->result_array();
 		// return $this->db->last_query();

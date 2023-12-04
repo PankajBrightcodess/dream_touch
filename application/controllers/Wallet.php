@@ -234,16 +234,16 @@ class Wallet extends CI_Controller {
 		}else{
 			$where['MONTH(date)'] = date('m');
 		}
-		if(isset($rec['closing']) && !empty($rec['closing'])){
-			if($rec['closing']==1){
-				$where['DAY(date)'] = '10';
-			}elseif($rec['closing']==2){
-				$where['DAY(date)'] = '20';
-			}
-			if($rec['closing']==3){
-				$where['DAY(date)'] = '30';
-			}
-		}
+		// if(isset($rec['closing']) && !empty($rec['closing'])){
+		// 	if($rec['closing']==1){
+		// 		$where['DAY(date)'] = '10';
+		// 	}elseif($rec['closing']==2){
+		// 		$where['DAY(date)'] = '20';
+		// 	}
+		// 	if($rec['closing']==3){
+		// 		$where['DAY(date)'] = '30';
+		// 	}
+		// }
 		// if(isset($rec['level']) && !empty($rec['level'])){
 		// 	if($rec['level']==1){
 		// 		$where['rank'] = "1st Level";
@@ -259,7 +259,7 @@ class Wallet extends CI_Controller {
 		$data['title']="Level Incomes";
 		$data['breadcrumb']=array("/"=>"Home");
 		$data['incomes']=$this->Wallet_model->levelin($where);
-			 // echo PRE;
+		// 	 echo PRE;
 		// print_r($data['incomes']);die;
 		$data['datatable']=true;
 		$this->template->load('wallet','levelincome',$data);
