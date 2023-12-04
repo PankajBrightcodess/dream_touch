@@ -1052,11 +1052,13 @@ class Members extends CI_Controller {
 					$message.= "Visit our site ".str_replace('members.','',base_url()).".";
 					//$smsdata=array("mobile"=>$memberdata['mobile'],"message"=>$message);
 					$email = $_SESSION['emailset'];
-					// echo PRE;
-					// print_r($email);die;
+					echo PRE;
+					print_r($email);
 					unset($_SESSION['emailset']);
+				
+		
 					mail($email,PROJECT_NAME,$message);
-					
+					die;
 					
 					// send_sms($smsdata);
 					$flash=array("mname"=>$memberdata['name'],"uname"=>$result['username'],"pass"=>$result['password']);
