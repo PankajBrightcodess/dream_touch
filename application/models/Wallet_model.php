@@ -366,7 +366,9 @@ class Wallet_model extends CI_Model{
 				}
 			}
 			echo PRE;
-			print_r($level1);die;
+			print_r($level1);
+			print_r($record);die;
+			
 			if($value['rank']=="1st Level"){
 				$rec[$key]['total_amount'] = array_sum($level1);
 				$rec[$key]['persentage'] = "50%";
