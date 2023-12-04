@@ -276,7 +276,7 @@ class Member_model extends CI_Model{
 			$transamount =  $qrya->unbuffered_row('array');
 		}
 		$memberid = $this->db->get_where('users',array('id'=>$regid))->row('username');
-		$where7=array("receiver_id"=>$memberid,"type"=>"roi_fund");
+		$where7=array("receiver_id"=>$memberid,"type"=>"level_fund");
 		$this->db->select_sum('amount');
 		$query6=$this->db->get_where("tmp_fund_transfer",$where7);
 		$getamount=$query6->row()->amount;
