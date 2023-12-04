@@ -259,7 +259,7 @@ class Wallet_model extends CI_Model{
 		foreach ($rec as $key => $value) {
 			$record = $this->Member_model->levelwisemembers($regid,$value['date']);
 			if(!empty($record)){
-				foreach($record as $key => $value1) {
+				foreach($record as $key1 => $value1) {
 					if($value1['level']=='1'){
 						$level1[] = $value['amount'];
 					}elseif($value1['level']=='2'){
