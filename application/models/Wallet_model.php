@@ -255,11 +255,13 @@ class Wallet_model extends CI_Model{
 		$rec =  $this->db->get_where("wallet",$where)->result_array();
 		$rec_date = array_column($rec,'date');
 		$regid = $this->session->userdata('id');
-		
+	
 		foreach ($rec as $key => $value) {
 			$level1 = $level2 = $level3 = $level4 =$level5=$level6=$level7=$level8=$level9=$level10=array();
 			$amt = 0;
 			$record = $this->Member_model->levelwisemembers($regid,$value['date']);
+			echo PRE;
+			print_R($record);die;
 			if(!empty($record)){
 				foreach($record as $key1 => $value1) {
 					if($value1['level']=='1'){
@@ -366,7 +368,7 @@ class Wallet_model extends CI_Model{
 				}
 			}
 			echo PRE;
-			print_r($level1);
+			
 			print_r($record);die;
 			
 			if($value['rank']=="1st Level"){
