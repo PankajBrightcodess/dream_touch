@@ -263,103 +263,103 @@ class Wallet_model extends CI_Model{
 			if(!empty($record)){
 				foreach($record as $key1 => $value1) {
 					if($value1['level']=='1'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.5;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.5;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.5;
+							$amt = 50;
 						}
 						$level1[] = $amt;
 					}elseif($value1['level']=='2'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.3;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.3;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.3;
+							$amt = 50;
 						}
 						$level2[] = $amt;
 					}elseif($value1['level']=='3'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.2;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.2;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.2;
+							$amt = 50;
 						}
 						$level3[] = $amt;
 					}elseif($value1['level']=='4'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.1;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.1;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.1;
+							$amt = 50;
 						}
 						$level4[] = $amt;
 					}elseif($value1['level']=='5'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.1;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.1;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.1;
+							$amt = 50;
 						}
 						$level5[] = $amt;
 					}elseif($value1['level']=='6'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.1;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.1;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.1;
+							$amt = 50;
 						}
 						$level6[] = $amt;
 					}elseif($value1['level']=='7'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.1;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.1;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.1;
+							$amt = 50;
 						}
 						$level7[] = $amt;
 					}elseif($value1['level']=='8'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.1;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.1;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.1;
+							$amt = 50;
 						}
 						$level8[] = $amt;
 					}elseif($value1['level']=='9'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.1;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.1;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.1;
+							$amt = 50;
 						}
 						$level9[] = $amt;
 					}elseif($value1['level']=='10'){
-						$amount = $value1['amount'];
+						$amount = $value['amount'];
 						if($amount==999.00){
-							$amt = 10*0.1;
+							$amt = 10;
 						}elseif($amount==1999.00){
-							$amt = 20*0.1;
+							$amt = 20;
 						}elseif($amount==4999.00){
-							$amt = 50*0.1;
+							$amt = 50;
 						}
 						$level10[] = $amt;
 					}
