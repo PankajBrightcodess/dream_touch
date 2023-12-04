@@ -664,6 +664,37 @@ class Wallet_model extends CI_Model{
 	}
 
 	// ''''''''''''''''''''''''''''''''''PANKAJ MANI TIWARI''''''''''''''''''''''''''''''''''''''''
+
+	public function roi_income($regid,$date=NULL){
+		if($date==NULL){ $date=date('Y-m-d'); }
+			$checkstatus=$this->checkstatus($regid,$date);
+			
+			$result=$commission=array();
+			if($checkstatus){
+				$activation_date = $this->db->get_where('members',array('regid'=>$regid))->row("activation_date");
+				$lastdate = date('Y-m-d',strtotime("$activation_date +300 days"));
+				$current_date = new DateTime($date);
+				$lastdate = new DateTime($lastdate);
+				if($lastdate>$current_date){
+					$amount = $this->packageamount($regid);
+					if($amount==999.00){
+						$amount = 10;
+					}elseif($amount==1999.00){
+						$amount = 20;
+					}elseif($amount==4999.00){
+						$amount = 50;
+					}
+					if($amount>0){
+						$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"ROI Income","added_on"=>date('Y-m-d H:i:s'));
+						$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"ROI Income");
+						$check=$this->db->get_where("wallet_second",$where)->num_rows();
+						if($check == 0){
+							$this->db->insert("wallet_second",$data);
+						}
+					}
+				}
+			}
+	}
 	
 	public function directsponsor($regid,$date=NULL){
 		if($date===NULL){
@@ -676,8 +707,11 @@ class Wallet_model extends CI_Model{
 			$activation_date = $this->db->get_where('members',array('regid'=>$regid))->row('activation_date');
 			$amount = 0;
 			$lastdate = date('Y-m-d',strtotime("$activation_date +10 days"));
+			
 			$countmember = $this->db->get_where('members',array('refid'=>$regid,'activation_date<='=>$lastdate,'status'=>1))->num_rows();
+			
 			$packageamount = $this->packageamount($regid);
+		
 			if($countmember>=10 && $countmember<20){
 				
 				if($packageamount==999.00){
@@ -697,9 +731,11 @@ class Wallet_model extends CI_Model{
 					$amount = 50;
 				}
 			}
+			
 
 			$lastdate = date('Y-m-d',strtotime("$activation_date +30 days"));
 			$countmember = $this->db->get_where('members',array('refid'=>$regid,'activation_date<='=>$lastdate,'status'=>1))->num_rows();
+	
 			if($countmember>=25){
 				if($packageamount==999.00){
 					$amount = 50; 
@@ -709,19 +745,25 @@ class Wallet_model extends CI_Model{
 					$amount = 80;
 				} 
 			}
+			
 			$where=array("regid"=>$regid,"remarks"=>"ROI Sponsoring Bonanza");
-				$saveamount=$this->db->get_where("tmp_wallet_second",$where)->result_array();
-				if(!empty($saveamount)){
-					$post_amount = array_column($saveamount,'amount');
-					$post_amount = array_sum($post_amount);
-					$amount = $amount-$post_amount;
-				}else{
-					$amount = $amount-0;
-				}
-			if($amount>0){
+				$saveamount=$this->db->get_where("tmp_wallet_second",$where)->num_rows();
+			// 	echo PRE;
+			// print_r($date);die;
+				// if(!empty($saveamount)){
+				// 	$post_amount = array_column($saveamount,'amount');
+				// 	$post_amount = array_sum($post_amount);
+				// 	$amount = $amount-$post_amount;
+				// }else{
+				// 	$amount = $amount-0;
+				// }
+				
+			if($amount>0 && $saveamount<=300){
 				$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"ROI Sponsoring Bonanza","added_on"=>date('Y-m-d H:i:s'));
 				$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"ROI Sponsoring Bonanza");
+				
 				$check=$this->db->get_where("tmp_wallet_second",$where)->num_rows();
+				
 				if($check == 0){
 				    $this->db->insert("tmp_wallet_second",$data);
 				}
@@ -1393,36 +1435,7 @@ class Wallet_model extends CI_Model{
 				}
 		}
 
-		public function roi_income($regid,$date=NULL){
-			if($date==NULL){ $date=date('Y-m-d'); }
-				$checkstatus=$this->checkstatus($regid,$date);
-				
-				$result=$commission=array();
-				if($checkstatus){
-					$activation_date = $this->db->get_where('members',array('regid'=>$regid))->row("activation_date");
-					$lastdate = date('Y-m-d',strtotime("$activation_date +300 days"));
-					$current_date = new DateTime($date);
-					$lastdate = new DateTime($lastdate);
-					if($lastdate>$current_date){
-						$amount = $this->packageamount($regid);
-						if($amount==999.00){
-							$amount = 10;
-						}elseif($amount==1999.00){
-							$amount = 20;
-						}elseif($amount==4999.00){
-							$amount = 50;
-						}
-						if($amount>0){
-							$data=array("date"=>$date,'type'=>"ewallet","regid"=>$regid,"amount"=>$amount,"remarks"=>"ROI Income","added_on"=>date('Y-m-d H:i:s'));
-							$where=array("date"=>$date,"regid"=>$regid,"remarks"=>"ROI Income");
-							$check=$this->db->get_where("wallet_second",$where)->num_rows();
-							if($check == 0){
-								$this->db->insert("wallet_second",$data);
-							}
-						}
-					}
-				}
-		}
+		
 	}
 	
 

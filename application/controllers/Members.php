@@ -28,12 +28,12 @@ class Members extends CI_Controller {
 
 	public function check()
 	{
-		$date=date('Y-m-d',strtotime('-3 day'));
+		$date=date('Y-m-d',strtotime('-2 day'));
 		// echo PRE;
 		// print_r($date);die;
 		// $date=date('Y-m-d');
 		$regid = $this->session->userdata('id');
-		$rec = $this->Wallet_model->generate_level_income($regid,$date);
+		$rec = $this->Wallet_model->directsponsor($regid,$date);
 		echo PRE;
 		print_r($rec);die;
 	}
