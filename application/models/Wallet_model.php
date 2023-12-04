@@ -246,14 +246,22 @@ class Wallet_model extends CI_Model{
 		$array=$this->db->get_where("wallet",array("regid"=>$regid,"amount>"=>"0","remarks"=>"Car Reward"))->result_array();
 		return $array;
 	}
-	// $members=$this->Member_model->getdirectativemembers($regid,$date);
+	// 
 	public function levelin($where){
 		// echo PRE;
 		// print_r($where);die;
 		$this->db->order_by("id");
+		// return $this->db->get_where("wallet",$where)->result_array();
 		$rec =  $this->db->get_where("wallet",$where)->result_array();
+		$rec_date = array_column($rec,'date');
+		$regid = $this->session->userdata('id');
+		foreach ($rec_date as $key => $value) {
+			$record = $this->Member_model->levelwisemembers($regid,$value);
+			echo PRE;
+		print_r($record);die;
+		}
 		echo PRE;
-		print_r($rec);die;
+		print_r($rec_date);die;
 		// return $this->db->last_query();
 		//  $array;
 	}
