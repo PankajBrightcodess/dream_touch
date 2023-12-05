@@ -332,12 +332,12 @@
                                 </div>
                               </div>
                         </div>
-
+                        
                         <div class="col-md-3 col-12">
                           <div class="small-box " style="background: linear-gradient(302deg,#17252E,#2B5562);box-shadow:5px 5px 10px black;">
                           <div class="row">
                                   <div class="col-md-5 col-5 ml-3 text-light">
-                                  <h3>0/0</h3>      
+                                  <h3><?php if(!empty($fund_transfer['amount'])){ echo $fund_transfer['amount']; }else{ echo '0.00';} ?></h3>      
                                     <p>P2P Fund Transfer</p>
                                   </div>
                                   <div class="col-md-6 col-6 text-right">
