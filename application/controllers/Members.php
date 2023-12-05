@@ -1054,9 +1054,6 @@ class Members extends CI_Controller {
 					$email = $_SESSION['emailset'];
 					unset($_SESSION['emailset']);
 					$a = mail($email,PROJECT_NAME,$message);
-					
-					
-					
 					// send_sms($smsdata);
 					$flash=array("mname"=>$memberdata['name'],"uname"=>$result['username'],"pass"=>$result['password']);
 					$this->session->set_flashdata($flash);
