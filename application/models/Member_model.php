@@ -335,6 +335,16 @@ class Member_model extends CI_Model{
 		return $qry->unbuffered_row('array');
 	}
 
+	public function p_two_p_fund_transfer(){
+		$regid = $this->session->userdata('id');
+		$where = array('sender_id'=>$regid);
+		$this->db->where($where);
+		$this->db->select_sum('amount');
+		$this->db->from('tmp_fund_transfer');
+		$qry = $this->db->get();
+		return $qry->unbuffered_row('array');
+	}
+
 	public function direct_bonus(){
 		$regid = $this->session->userdata('id');
 		$where = array('regid'=>$regid,'remarks'=>'Direct Sale Bonus');

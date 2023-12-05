@@ -33,6 +33,9 @@ class Home extends CI_Controller {
 		$data['package']=$this->Member_model->packageamount_package();
 		$data['direct_business']=$this->Member_model->direct_business();
 		$data['total_business']=$this->Member_model->total_business();
+		$data['fund_transfer']=$this->Member_model->p_two_p_fund_transfer();
+		echo PRE;
+		print_r($data['fund_transfer']);
 
 		$regid = $this->session->userdata('id');
 		$direct = $this->Member_model->getdirectmembers($regid);
